@@ -1,17 +1,29 @@
 import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
-import { User } from './entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './rest/users/users.module';
 import { AppController } from './app.controller';
-import { config } from './config';
+import { configuration } from './config/configuration';
+import { DatabaseConfig } from './config/db.config';
+import { StaticConfig } from './config/static.config';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot(config.static),
-    TypeOrmModule.forRoot({...config.db, entities: [User]}),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration]
+    }),
+    ServeStaticModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: StaticConfig
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: DatabaseConfig
+    }),
     AuthModule,
     UsersModule
   ],

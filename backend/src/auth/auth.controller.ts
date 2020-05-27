@@ -11,7 +11,7 @@ export class AuthController {
 
   constructor(
     private authService: AuthService,
-    private UsersService: UsersService
+    private usersService: UsersService
   ) {}
 
   @UseGuards(LocalAuthGuard)
@@ -23,7 +23,7 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('auth/me')
   getProfile(@Req() req: Request) {
-    return this.UsersService.findOne((req.user as User).id);
+    return this.usersService.findOne((req.user as User).id);
   }
 
 }

@@ -16,6 +16,7 @@ export class UsersService {
     const user = new User();
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
+    user.username = createUserDto.username;
     user.password = createUserDto.password;
     user.email = createUserDto.email;
     user.birthDate = createUserDto.birthDate;
@@ -32,9 +33,9 @@ export class UsersService {
     return this.usersRepository.findOne(id);
   }
 
-  async findUser(email: string): Promise<User> {
+  async findUser(username: string): Promise<User> {
     return this.usersRepository.createQueryBuilder("user")
-        .where("user.email = :email", { email: email })
+        .where("user.username = :username", { username: username })
         .addSelect("user.password")
         .getOne();
   }
