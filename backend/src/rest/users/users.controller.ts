@@ -12,8 +12,8 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return this.usersService.create(createUserDto);
+  create(@Body() userData: CreateUserDto): Promise<User> {
+    return this.usersService.create(userData);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -34,12 +34,5 @@ export class UsersController {
   remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.usersService.remove(id);
   }
-
-  // @UseGuards(JwtAuthGuard)
-  // @Get()
-  // async findAll(@Req() req: Request, @Res() res: Response): Promise<void> {
-  //   res.set('rwerw', 'sdfsd');
-  //   res.send(await this.usersService.findAll(req.qs));
-  // }
 
 }

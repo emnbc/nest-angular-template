@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from '../../dto/create-user.dto';
@@ -12,17 +12,24 @@ export class UsersService {
     private readonly usersRepository: Repository<User>
   ) { }
 
-  async create(createUserDto: CreateUserDto): Promise<User> {
+  async create(userData: CreateUserDto): Promise<User> {
     const user = new User();
 
-    user.firstName = createUserDto.firstName;
-    user.lastName = createUserDto.lastName;
-    user.username = createUserDto.username;
-    user.password = createUserDto.password;
-    user.email = createUserDto.email;
-    user.birthDate = createUserDto.birthDate;
+    user.firstName = userData.firstName;
+    user.lastName = userData.lastName;
+    user.username = userData.username;
+    user.password = userData.password; // TO DO encrypt password
+    user.email = userData.email;
+    user.birthDate = userData.birthDate;
 
-    return this.usersRepository.save(user);
+    try {
+      return await this.usersRepository.save(user);
+    } catch (err) {
+      if (err.code === '23505') {
+        throw new ConflictException('Username has already been taken');
+      }
+      throw new InternalServerErrorException();
+    }
   }
 
   async findAll(qs: QuerySelecting): Promise<QueryResult> {
