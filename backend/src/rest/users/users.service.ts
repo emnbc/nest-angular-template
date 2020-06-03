@@ -25,7 +25,7 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
-  async findAll(qs: QuerySelecting): Promise<QueryRusult> {
+  async findAll(qs: QuerySelecting): Promise<QueryResult> {
     return {
       count: await this.usersRepository.count({ ...qs.where }),
       result: await this.usersRepository.find({ ...qs })

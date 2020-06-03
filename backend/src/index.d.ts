@@ -11,7 +11,7 @@ interface QuerySelecting {
     order: { [key: string]: string; };
 }
 
-interface QueryRusult {
+interface QueryResult {
     count: number;
     result: any[];
 }
