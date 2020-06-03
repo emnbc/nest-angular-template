@@ -18,7 +18,7 @@ export class UsersService {
     user.firstName = userData.firstName;
     user.lastName = userData.lastName;
     user.username = userData.username;
-    user.password = userData.password; // TO DO encrypt password
+    user.password = userData.password; // TODO: encrypt password
     user.email = userData.email;
     user.birthDate = userData.birthDate;
 

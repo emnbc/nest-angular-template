@@ -22,10 +22,7 @@ export class QuerySelectingMiddleware implements NestMiddleware {
             order: {}
         };
 
-        /**
-         * TO DO
-         * If the parametr doesn't exist in the entity - there will be error (500)
-         */
+        // TODO: If the parametr doesn't exist in the entity - there will be error (500)
         for (let key in query) {
             if(query[key] && key !== 'size' && key !== 'page' && key !== 'sort') {
                 qs.where[key] = query[key];
