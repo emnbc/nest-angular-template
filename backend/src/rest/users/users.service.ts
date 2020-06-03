@@ -14,6 +14,7 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const user = new User();
+
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
     user.username = createUserDto.username;
@@ -24,12 +25,14 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
-  async findAll(): Promise<User[]> {
-    console.log(await this.usersRepository.count());
-    return this.usersRepository.find();
+  async findAll(qs: QuerySelecting): Promise<QueryRusult> {
+    return {
+      count: await this.usersRepository.count({ ...qs.where }),
+      result: await this.usersRepository.find({ ...qs })
+    };
   }
 
-  async findOne(id: string | number): Promise<User> {
+  async findOne(id: number): Promise<User> {
     return this.usersRepository.findOne(id);
   }
 
@@ -40,7 +43,7 @@ export class UsersService {
         .getOne();
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
   }
 }

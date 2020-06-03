@@ -4,9 +4,9 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { Request } from 'express';
 import { AuthService } from './auth.service';
 import { User } from 'src/entities/user.entity';
-import { UsersService } from '../rest/users/users.service';
+import { UsersService } from '../users/users.service';
 
-@Controller()
+@Controller('auth')
 export class AuthController {
 
   constructor(
@@ -15,13 +15,13 @@ export class AuthController {
   ) {}
 
   @UseGuards(LocalAuthGuard)
-  @Post('auth/login')
+  @Post('login')
   async login(@Req() req: Request) {
     return this.authService.login(req.user);
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('auth/me')
+  @Get('me')
   getProfile(@Req() req: Request) {
     return this.usersService.findOne((req.user as User).id);
   }
