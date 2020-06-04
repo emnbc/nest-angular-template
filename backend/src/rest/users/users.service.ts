@@ -1,6 +1,7 @@
 import { Injectable, InternalServerErrorException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { User } from '../../entities/user.entity';
 
@@ -12,18 +13,13 @@ export class UsersService {
     private readonly usersRepository: Repository<User>
   ) { }
 
-  async create(userData: CreateUserDto): Promise<User> {
-    const user = new User();
+  async create(userData: CreateUserDto): Promise<any> {
 
-    user.firstName = userData.firstName;
-    user.lastName = userData.lastName;
-    user.username = userData.username;
-    user.password = userData.password; // TODO: encrypt password
-    user.email = userData.email;
-    user.birthDate = userData.birthDate;
+    const user = this.usersRepository.create(userData);
 
     try {
-      return await this.usersRepository.save(user);
+      const { password, ...result } = await this.usersRepository.save(user);
+      return result;
     } catch (err) {
       if (err.code === '23505') {
         throw new ConflictException('Username has already been taken');

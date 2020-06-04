@@ -13,7 +13,7 @@ export const configuration = () => ({
         entities: ['dist/**/*.entity{.ts,.js}']
     },
     static: [{
-        rootPath: join(__dirname, '..', '..', 'static'),
+        rootPath: join(__dirname, '..', '..', '..', 'static'),
         exclude: ['/api*'],
     }]
   });
