@@ -40,9 +40,9 @@ export class UsersService {
   }
 
   async findUser(username: string): Promise<User> {
-    return this.usersRepository.createQueryBuilder("user")
-        .where("user.username = :username", { username: username })
-        .addSelect("user.password")
+    return this.usersRepository.createQueryBuilder('user')
+        .where('user.username = :username', { username: username })
+        .addSelect('user.password')
         .getOne();
   }
 

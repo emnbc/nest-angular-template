@@ -9,6 +9,7 @@ export const configuration = () => ({
         username: process.env.TYPEORM_USERNAME,
         password: process.env.TYPEORM_PASSWORD,
         database: process.env.TYPEORM_DATABASE,
+        schema: process.env.TYPEORM_SCHEMA,
         synchronize: true,
         entities: ['dist/**/*.entity{.ts,.js}']
     },
