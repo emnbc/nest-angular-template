@@ -1,29 +1,15 @@
 <div class="container">
+
   <header>
-      <mat-toolbar color="primary">
-          <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-          <h1 class="app-name">Nest Angular Template</h1>
-      </mat-toolbar>
+      <app-header></app-header>
   </header>
+
   <main>
-    <mat-sidenav-container>
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true" [style.width.px]="270">
-        <mat-nav-list>
-          <a mat-list-item routerLink="/"><mat-icon class="icon">home</mat-icon>Home</a>
-          <a mat-list-item routerLink="/"><mat-icon class="icon">people</mat-icon>Users</a>
-          <a mat-list-item routerLink="/"><mat-icon class="icon">info</mat-icon>About</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content [style.padding.px]="16">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Nisl suscipit adipiscing bibendum est ultricies integer quis. Sem integer vitae justo eget magna fermentum iaculis eu non. Nulla pharetra diam sit amet nisl suscipit adipiscing. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. Leo in vitae turpis massa sed elementum tempus egestas sed. Mauris pharetra et ultrices neque. Leo a diam sollicitudin tempor id eu nisl nunc. Viverra justo nec ultrices dui. Facilisis gravida neque convallis a cras semper. Consectetur libero id faucibus nisl tincidunt eget. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Vitae turpis massa sed elementum tempus egestas. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Consectetur a erat nam at lectus urna. Congue nisi vitae suscipit tellus mauris a diam maecenas. Amet purus gravida quis blandit.</p>
-        <p>Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Nunc pulvinar sapien et ligula ullamcorper. Morbi tincidunt augue interdum velit. Sapien et ligula ullamcorper malesuada proin libero. Sed tempus urna et pharetra pharetra massa. Eget nulla facilisi etiam dignissim diam. Enim tortor at auctor urna nunc id cursus metus. Integer eget aliquet nibh praesent tristique magna sit amet purus. Aliquet bibendum enim facilisis gravida. Nullam ac tortor vitae purus faucibus. Enim tortor at auctor urna nunc id. Leo duis ut diam quam nulla porttitor massa. Viverra accumsan in nisl nisi scelerisque eu. Leo duis ut diam quam. At auctor urna nunc id cursus metus aliquam eleifend.</p>
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+    <router-outlet></router-outlet>
   </main>
+
   <footer>
-    <mat-toolbar color="warn">
-      <h1 class="app-name">Footer</h1>
-    </mat-toolbar>
+    <app-footer></app-footer>
   </footer>
+
 </div>
