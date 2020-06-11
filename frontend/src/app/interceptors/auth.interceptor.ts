@@ -30,9 +30,9 @@ export class AuthInterceptor implements HttpInterceptor {
             // Http Error Response
             if(err.status === 401) {
                 this.auth.logOut();
-                setTimeout(() => {
-                    this.router.navigate(['/sign-in']);
-                }, 1000);
+                // setTimeout(() => {
+                //     this.router.navigate(['/sign-in']);
+                // }, 1000);
             }
         }
       })

@@ -13,7 +13,7 @@ export class HttpHelperService {
   constructor(private http: HttpClient) { }
 
   login(authData: User): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, authData);
+    return this.http.post(`${environment.apiUrl}/auth/login`, authData);
   }
 
   find<T>(url: string, paramsList?: Param[]): Observable<HttpResponse<T>> {

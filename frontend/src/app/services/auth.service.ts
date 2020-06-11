@@ -12,9 +12,7 @@ export class AuthService {
   private _token: string = null;
   user$ = new BehaviorSubject<User>(new User());
 
-  constructor(
-    private http: HttpHelperService
-  ) {}
+  constructor(private http: HttpHelperService) {}
   
   set token(value: string) {
     this._token = value;

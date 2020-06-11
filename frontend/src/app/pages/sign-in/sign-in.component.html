@@ -1,1 +1,31 @@
-<p>sign-in works!</p>
+<div class="responsive-container login-container">
+
+      <mat-card [style.maxWidth.px]="400">
+        <mat-card-content>
+          
+            <h3>Login</h3>
+
+            <form (keyup.enter)="login()">
+
+              <mat-form-field appearance="fill" [style.width.%]="100">
+                <mat-label>Enter your username</mat-label>
+                <input matInput type="text" autocomplete="off" name="username" [(ngModel)]="authData.username">
+              </mat-form-field>
+    
+              <mat-form-field appearance="fill" [style.width.%]="100">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" name="password" [(ngModel)]="authData.password">
+                <button mat-icon-button matSuffix (mouseup)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <button mat-flat-button color="accent" (click)="login()">Login</button>
+
+            </form>
+
+        </mat-card-content>
+      </mat-card>
+      
+      
+</div>

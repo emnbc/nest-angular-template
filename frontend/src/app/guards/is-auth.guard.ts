@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot, Route } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, map} from 'rxjs/operators';
+import { Router, Route, CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map} from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
-import { HttpHelperService } from '../services/http-helper.service';
-import { User } from '../models/user.model';
-
 
 @Injectable({
   providedIn: 'root'

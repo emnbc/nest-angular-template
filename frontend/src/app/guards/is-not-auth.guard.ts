@@ -1,46 +1,40 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, map} from 'rxjs/operators';
+import { Router, Route, CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map} from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
-import { HttpHelperService } from '../services/http-helper.service';
-import { User } from '../models/user.model';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class IsNotAuthGuard implements CanActivate {
-
-  user$: User = new User();
+export class IsNotAuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
   constructor(
-    public router: Router,
-    public http: HttpHelperService,
-    public auth: AuthService
+    private router: Router,
+    private auth: AuthService
   ) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.checkLogin();
+  }
 
-    if(this.auth.user$.getValue().id) {
-      this.router.navigate(['/']);
-      return false;
-    }
+  canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.checkLogin();
+  }
 
-    if(this.auth.token) {
-      return this.http.find<User>('auth/me').pipe(map(res => {
-        if(res.body && res.body.id) {
-          this.auth.user$.next(new User(res.body));
-          this.router.navigate(['/']);
-          return false;
-        } else {
-          return true;
-        }
-      }), catchError(() => {  
-        return of(true);
-      }));
-    } else return true;
+  canLoad(route: Route): Observable<boolean> {
+    return this.checkLogin();
+  }
 
+  checkLogin() {
+    return this.auth.checkAuthorization().pipe(map(res => {
+      if(res) {
+        this.router.navigate(['/home']);
+        return false;
+      } else {
+        return true;
+      }
+    }));
   }
 
 }
