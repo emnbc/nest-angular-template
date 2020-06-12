@@ -1,9 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-* { box-sizing: border-box; }
-html { font-size: 14px; }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 14px;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .container {
     display: flex;
@@ -25,8 +35,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .icon {
-    opacity: .75;
-    margin-right: 16px;
+    opacity: .6;
+    margin-right: 32px;
 }
 
 .responsive-container { // TODO: Make responsive container
