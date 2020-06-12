@@ -1,5 +1,8 @@
+import { ChangeDetectorRef, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav'; 
+
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-main',
@@ -8,10 +11,13 @@ import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 })
 export class MainComponent implements OnDestroy {
 
-  mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
+  mobileQuery: MediaQueryList;
+
+  @ViewChild('snav', {static: false}) snav: MatSidenav;
 
   constructor(
+    private app: AppService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher
   ) {
@@ -20,6 +26,7 @@ export class MainComponent implements OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
+    this.app.menuSwicher.subscribe(() => this.snav.toggle());
   }
 
   ngOnDestroy(): void {

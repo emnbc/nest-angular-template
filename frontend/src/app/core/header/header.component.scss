@@ -1,9 +1,9 @@
 .header-container {
     display: flex;
     justify-content: space-between;
-}
-.title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    & .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

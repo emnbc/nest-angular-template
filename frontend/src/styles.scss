@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+* { box-sizing: border-box; }
+html { font-size: 14px; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -15,19 +17,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     & main {
         flex: 1 0 auto;
         background-color: #fafafa;
-        // display: flex;
     }
     & footer {
         z-index: 5;
+        border-top: solid 1px rgba(0,0,0,.12);
     }
-}
-
-.margin-left {
-    margin-left: 8px !important;
-}
-
-.margin-right {
-    margin-left: 8px !important;
 }
 
 .icon {
@@ -35,12 +29,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-right: 16px;
 }
 
-.responsive-container {
+.responsive-container { // TODO: Make responsive container
     max-width: 1240px;
     width: 100%;
-    height: 80%;
+    height: 100%;
     padding: 16px 40px;
-    overflow: hidden;
     margin-right: auto;
     margin-left: auto;
+}
+
+.margin-left {
+    margin-left: 8px !important;
+}
+
+.margin-right {
+    margin-right: 8px !important;
 }

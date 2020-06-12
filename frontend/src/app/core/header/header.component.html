@@ -1,11 +1,10 @@
 <mat-toolbar class="header-container" color="primary">
     <div class="title">
-        <button mat-icon-button><mat-icon>menu</mat-icon></button>
-        <!-- <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->
-        <h1 class="margin-left">Nest Angular Template</h1>
+        <button mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
+        <h1>Nest Angular Template</h1>
     </div>
     <nav>
-        <button mat-button (click)="logOut()"><mat-icon>exit_to_app</mat-icon><span class="margin-right">Exit</span></button>
-        <!-- <button mat-icon-button (click)="logOut()"><mat-icon>exit_to_app</mat-icon></button> -->
+        <button *ngIf="user.id" mat-button><mat-icon class="margin-right">account_box</mat-icon><span>{{ user.firstName }} {{ user.lastName }}</span></button>
+        <button mat-button (click)="logOut()"><mat-icon class="margin-right">exit_to_app</mat-icon><span>Exit</span></button>
     </nav>
 </mat-toolbar>
