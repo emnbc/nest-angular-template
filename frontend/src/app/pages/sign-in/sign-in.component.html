@@ -20,7 +20,10 @@
                 </button>
               </mat-form-field>
 
-              <button [disabled]="loading" mat-flat-button color="accent" (click)="login()"><span *ngIf="loading">Processing...</span><span *ngIf="!loading">Login</span></button>
+              <button [disabled]="loading" mat-flat-button color="accent" (click)="login()">
+                <span *ngIf="loading">Processing...</span>
+                <span *ngIf="!loading">Login</span>
+              </button>
 
             </form>
 
