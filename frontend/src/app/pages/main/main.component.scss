@@ -2,18 +2,14 @@
     display: flex;
     height: 100%;
 }
+
 .mat-nav-list a.active {
     background: rgba(0, 0, 0, .1);
 }
-// .mat-nav-list h4.subheader {
-//     margin: 0;
-//     padding: 0 16px;
-//     color: rgba(0, 0, 0, .6);
-//     &::before {
-//         display: inline-block;
-//         width: 0;
-//         height: 28px;
-//         content: "";
-//         vertical-align: 0;
-//     }
-// }
+
+.nav-list-divider {
+    margin: 8px 0 0;
+    height: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
