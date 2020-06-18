@@ -5,7 +5,7 @@ import { HttpHelperService } from '../../services/http-helper.service';
 import { User } from '../../models/user.model';
 
 @Component({
-  selector: 'app-sign-in',
+  selector: 'nat-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })

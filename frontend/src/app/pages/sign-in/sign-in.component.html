@@ -1,34 +1,29 @@
-<div class="login-container">
+<mat-card class="login-container">
+    <mat-card-content>
+    
+        <h3>Login</h3>
 
-      <mat-card [style.maxWidth.px]="400">
-        <mat-card-content>
-          
-            <h3>Login</h3>
+        <form (keyup.enter)="login()">
 
-            <form (keyup.enter)="login()">
-
-              <mat-form-field appearance="fill" [style.width.%]="100">
+            <mat-form-field class="login-container__field" appearance="fill">
                 <mat-label>Enter your username</mat-label>
                 <input matInput type="text" autocomplete="off" name="username" [(ngModel)]="authData.username">
-              </mat-form-field>
-    
-              <mat-form-field appearance="fill" [style.width.%]="100">
+            </mat-form-field>
+
+            <mat-form-field class="login-container__field" appearance="fill">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" name="password" [(ngModel)]="authData.password">
                 <button mat-icon-button matSuffix (mouseup)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
-              </mat-form-field>
+            </mat-form-field>
 
-              <button [disabled]="loading" mat-flat-button color="accent" (click)="login()">
+            <button [disabled]="loading" mat-flat-button color="accent" (click)="login()">
                 <span *ngIf="loading">Processing...</span>
                 <span *ngIf="!loading">Login</span>
-              </button>
+            </button>
 
-            </form>
+      </form>
 
-        </mat-card-content>
-      </mat-card>
-      
-      
-</div>
+    </mat-card-content>
+</mat-card>

@@ -1,6 +1,13 @@
-.login-container {
+:host {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.login-container {
+    max-width: 400px;
+    &__field {
+        width: 100%;
+    }
 }

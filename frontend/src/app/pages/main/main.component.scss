@@ -3,13 +3,22 @@
     height: 100%;
 }
 
-.mat-nav-list a.active {
-    background: rgba(0, 0, 0, .1);
+.nav-container {
+    width: 100%;
+    &__sidenav-drawer {
+        width: 270px;
+    }
+    &__sidenav-content {
+        padding: 16px;
+    }
+    &__list-divider {
+        margin: 8px 0 0;
+        height: 0;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+    }
 }
 
-.nav-list-divider {
-    margin: 8px 0 0;
-    height: 0;
-    border: none;
-    border-bottom: 1px solid rgba(0,0,0,.12);
+.mat-nav-list a.active {
+    background: rgba(0,0,0,.1);
 }

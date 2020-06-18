@@ -6,8 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class AppService {
 
-  menuSwicher = new Subject();
-
-  constructor() { }
+  menuSwicher = new Subject<void>();
+  menuShower = new Subject<boolean>();
 
 }

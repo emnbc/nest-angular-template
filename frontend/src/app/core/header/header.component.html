@@ -1,23 +1,26 @@
 <mat-toolbar class="header-container" color="primary">
-    <div class="title">
-        <button *ngIf="user.id" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
+    <div class="header-container__title">
+        <button *ngIf="showMenu" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
         <h1>Nest Angular Template</h1>
     </div>
     <nav>
-        <button *ngIf="user.id" mat-button [matMenuTriggerFor]="menu" aria-label="Profile"><mat-icon class="margin-right">account_box</mat-icon><span>{{ user.firstName }} {{ user.lastName }}</span></button>
+        <button *ngIf="user.id" mat-button [matMenuTriggerFor]="menu" aria-label="Profile">
+            <mat-icon class="margin-right">account_box</mat-icon>
+            <span>{{ user.firstName }} {{ user.lastName }}</span>
+        </button>
         <mat-menu #menu="matMenu" xPosition="before">
             <button mat-menu-item>
-              <mat-icon>account_circle</mat-icon>
-              <span>Profile</span>
+                <mat-icon>account_circle</mat-icon>
+                <span>Profile</span>
             </button>
             <button mat-menu-item disabled>
-              <mat-icon>settings</mat-icon>
-              <span>Settings</span>
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
             </button>
             <button mat-menu-item (click)="logOut()">
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Exit</span>
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Exit</span>
             </button>
-          </mat-menu>
+        </mat-menu>
     </nav>
 </mat-toolbar>

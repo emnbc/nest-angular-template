@@ -1,16 +1,14 @@
-<mat-sidenav-container>
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true" [style.width.px]="270">
-    <mat-nav-list>
-        <a mat-list-item routerLink="/home" routerLinkActive="active"><mat-icon class="icon">home</mat-icon>Home</a>
-        <a mat-list-item routerLink="/users" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>Manage users</a>
-        <!-- <mat-divider></mat-divider> -->
-        <hr class="nav-list-divider">
-        <!-- <div class="nav-list-subheader">Information</div> -->
-        <div mat-subheader>Information</div>
-        <a mat-list-item routerLink="/about" routerLinkActive="active"><mat-icon class="icon">info</mat-icon>About us</a>
-    </mat-nav-list>
+<mat-sidenav-container class="nav-container">
+    <mat-sidenav class="nav-container__sidenav-drawer" #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/home" routerLinkActive="active"><mat-icon class="icon">home</mat-icon>Home</a>
+            <a mat-list-item routerLink="/users" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>Manage users</a>
+            <hr class="nav-container__list-divider">
+            <div mat-subheader>Information</div>
+            <a mat-list-item routerLink="/about" routerLinkActive="active"><mat-icon class="icon">info</mat-icon>About us</a>
+        </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content [style.padding.px]="16">
+    <mat-sidenav-content class="nav-container__sidenav-content">
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -6,13 +6,14 @@ import { AppService } from '../../services/app.service';
 import { User } from '../../models/user.model';
 
 @Component({
-  selector: 'app-header',
+  selector: 'nat-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 
   user: User = new User();
+  showMenu: boolean;
 
   constructor(
     private router: Router,
@@ -20,6 +21,7 @@ export class HeaderComponent {
     private app: AppService
   ) {
     this.auth.user$.subscribe(user => this.user = user);
+    this.app.menuShower.subscribe(show => this.showMenu = show);
   }
 
   logOut() {
