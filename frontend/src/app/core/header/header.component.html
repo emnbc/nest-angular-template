@@ -1,6 +1,6 @@
-<mat-toolbar class="header-container" color="primary">
+<mat-toolbar class="header-container main-padding" color="primary">
     <div class="header-container__title">
-        <button *ngIf="showMenu" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
+        <button *ngIf="showMenu && mobile" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
         <h1>Nest Angular Template</h1>
     </div>
     <nav>

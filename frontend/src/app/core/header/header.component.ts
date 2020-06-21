@@ -14,6 +14,7 @@ export class HeaderComponent {
 
   user: User = new User();
   showMenu: boolean;
+  mobile: boolean;
 
   constructor(
     private router: Router,
@@ -22,6 +23,7 @@ export class HeaderComponent {
   ) {
     this.auth.user$.subscribe(user => this.user = user);
     this.app.menuShower.subscribe(show => this.showMenu = show);
+    this.app.mobile.subscribe(mobile => this.mobile = mobile);
   }
 
   logOut() {

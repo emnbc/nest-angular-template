@@ -6,7 +6,15 @@ import { Subject } from 'rxjs';
 })
 export class AppService {
 
+  /**
+   * Trigger for menu button.
+   */
   menuSwicher = new Subject<void>();
   menuShower = new Subject<boolean>();
+
+  /**
+   * Mobile state: true - mobile, false - not mobile.
+   */
+  mobile = new Subject<boolean>();
 
 }

@@ -1,9 +1,17 @@
 .header-container {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 600px) {
+        padding: 0 8px;
+    }
     &__title {
         display: flex;
         flex-direction: row;
         align-items: center;
+        & button {
+            @media screen and (min-width: 600px) {
+                display: none;
+            }
+        }
     }
 }
