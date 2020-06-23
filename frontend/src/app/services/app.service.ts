@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,15 @@ export class AppService {
    * Trigger for menu button.
    */
   menuSwicher = new Subject<void>();
-  menuShower = new Subject<boolean>();
+
+  /**
+   * State for show or hide menu
+   */
+  menuShower = new BehaviorSubject<boolean>(null);
 
   /**
    * Mobile state: true - mobile, false - not mobile.
    */
-  mobile = new Subject<boolean>();
+  mobile = new BehaviorSubject<boolean>(null);
 
 }

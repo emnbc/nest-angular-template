@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav'; 
+import { ReplaySubject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators';
 
 import { AppService } from '../../services/app.service';
 
@@ -11,29 +12,30 @@ import { AppService } from '../../services/app.service';
 })
 export class MainComponent implements OnInit, OnDestroy {
 
-  private mobileQueryListener: () => void;
-  mobileQuery: MediaQueryList;
+  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  mobile: boolean;
 
-  @ViewChild('snav', {static: false}) snav: MatSidenav;
+  @ViewChild('snav') snav: MatSidenav;
 
-  constructor(
-    private app: AppService,
-    public changeDetectorRef: ChangeDetectorRef,
-    public media: MediaMatcher
-  ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this.mobileQueryListener);
-  }
+  constructor(private app: AppService) { }
 
   ngOnInit(): void {
-    this.app.menuSwicher.subscribe(() => this.snav.toggle());
+    this.app.mobile
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(mobile => this.mobile = mobile);
+
+    this.app.menuSwicher
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(() => this.snav.toggle());
+
     this.app.menuShower.next(true);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
     this.app.menuShower.next(false);
+
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 
 }
