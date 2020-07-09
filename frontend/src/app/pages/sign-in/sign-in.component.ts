@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { HttpHelperService } from '../../services/http-helper.service';
 import { User } from '../../models/user.model';
@@ -15,6 +16,9 @@ export class SignInComponent {
   error: boolean = false;
   hide: boolean = true;
   authData: User = new User();
+
+  usernameControl = new FormControl(null, [Validators.minLength(3)]);
+  passwordControl = new FormControl(null, [Validators.minLength(3)]);
 
   constructor(
     private auth: AuthService,
