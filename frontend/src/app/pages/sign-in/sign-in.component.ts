@@ -16,8 +16,14 @@ export class SignInComponent {
   hide: boolean = true;
 
   authGroup = this.formBuilder.group({
-    username: [null, [Validators.required, Validators.minLength(3)]],
-    password: [null, [Validators.required, Validators.minLength(3)]],
+    username: [null, {
+      validators: [Validators.required, Validators.minLength(3)],
+      updateOn: 'change'
+    }],
+    password: [null, {
+      validators: [Validators.required, Validators.minLength(3)],
+      updateOn: 'change'
+    }],
   });
 
   constructor(
