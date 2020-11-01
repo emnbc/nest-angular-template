@@ -8,3 +8,9 @@ table {
         margin-left: 9px;
     }
 }
+
+.users-grid {
+    &__email {
+        width: 200px;
+    }
+}

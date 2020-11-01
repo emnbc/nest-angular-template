@@ -1,33 +1,45 @@
 <div class="button-block">
-  <button mat-raised-button>Update</button><button mat-raised-button color="primary">Create</button>
+  <button mat-raised-button color="primary">Create user</button>
 </div>
 <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Name Column -->
+    <!-- No. Column -->
     <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+  
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+  
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+    </ng-container>
+    
+    <!-- Username Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let element">{{element.username}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef> Username </th>
-        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="users-grid__email">Email</th>
+      <td mat-cell *matCellDef="let element">{{element.email}}</td>
     </ng-container>
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+
+    <!-- Birth Date Column -->
+    <ng-container matColumnDef="birthDate">
+      <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+      <td mat-cell *matCellDef="let element">{{element.birthDate | date: 'dd.MM.yyyy'}}</td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
