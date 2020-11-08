@@ -6,10 +6,10 @@ import { HttpHelperService } from '../../services/http-helper.service';
 
 @Component({
   selector: 'nat-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  templateUrl: './sign-in-page.component.html',
+  styleUrls: ['./sign-in-page.component.scss']
 })
-export class SignInComponent {
+export class SignInPageComponent {
 
   loading: boolean = false;
   error: boolean = false;

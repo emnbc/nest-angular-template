@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main.component';
+import { InnerPagesComponent } from './inner-pages.component';
 import { IsAuthGuard } from '../../guards/is-auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    component: InnerPagesComponent,
     children: [
       {
         path: '',
@@ -37,4 +37,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule { }
+export class InnerPagesRoutingModule { }

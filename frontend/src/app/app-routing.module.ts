@@ -5,12 +5,12 @@ import { IsNotAuthGuard } from './guards/is-not-auth.guard';
 const routes: Routes = [
   {
     path: 'welcome',
-    loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule),
+    loadChildren: () => import('./pages/welcome-page/welcome-page.module').then(m => m.WelcomePageModule),
     canLoad: [IsNotAuthGuard]
   },
   {
     path: 'sign-in',
-    loadChildren: () => import('./pages/sign-in/sign-in.module').then(m => m.SignInModule),
+    loadChildren: () => import('./pages/sign-in-page/sign-in-page.module').then(m => m.SignInPageModule),
     canLoad: [IsNotAuthGuard]
   }
 ];
