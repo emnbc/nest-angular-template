@@ -6,11 +6,11 @@ import { takeUntil } from 'rxjs/operators';
 import { AppService } from '../../services/app.service';
 
 @Component({
-  selector: 'nat-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'nat-inner-pages',
+  templateUrl: './inner-pages.component.html',
+  styleUrls: ['./inner-pages.component.scss']
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class InnerPagesComponent implements OnInit, OnDestroy {
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   mobile: boolean;

@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from '../../shared/material.module';
-import { MainRoutingModule } from './main-routing.module';
-import { MainComponent } from './main.component';
+import { InnerPagesRoutingModule } from './inner-pages-routing.module';
+import { InnerPagesComponent } from './inner-pages.component';
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [InnerPagesComponent],
   imports: [
     SharedModule,
     MaterialModule,
-    MainRoutingModule
+    InnerPagesRoutingModule
   ]
 })
-export class MainModule { }
+export class InnerPagesModule { }
