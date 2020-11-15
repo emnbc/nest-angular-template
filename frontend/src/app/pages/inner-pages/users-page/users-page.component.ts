@@ -7,10 +7,10 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @Component({
   selector: 'nat-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  templateUrl: './users-page.component.html',
+  styleUrls: ['./users-page.component.scss']
 })
-export class UsersComponent implements OnInit {
+export class UsersPageComponent implements OnInit {
 
   users: User[] = null;
 
@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   }
 
   openUserDialog() {
-    const userDialogRef = this.dialog.open(UserDialogComponent);
+    const userDialogRef = this.dialog.open(UserDialogComponent, { width: '500px' });
 
     userDialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
