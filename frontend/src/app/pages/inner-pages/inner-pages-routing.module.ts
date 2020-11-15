@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: 'users',
         canLoad: [IsAuthGuard],
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule)
       },
       {
         path: 'about',
