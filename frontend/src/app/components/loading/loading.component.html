@@ -1,3 +1,4 @@
-<div class="loading-wrapper">
-    <ng-content></ng-content>
+<div class="loading" [style.width]="width">
+    <div class="loading__cover" [style.visibility]="loading ? 'visible' : 'hidden'"><mat-spinner [diameter]="diameter"></mat-spinner></div>
+    <div><ng-content></ng-content></div>
 </div>

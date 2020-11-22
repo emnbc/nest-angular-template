@@ -12,7 +12,8 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 })
 export class UsersPageComponent implements OnInit {
 
-  users: User[] = null;
+  users: User[] = [];
+  loading: boolean = false;
 
   constructor(
     private http: HttpHelperService,
@@ -20,7 +21,7 @@ export class UsersPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.http.find<User[]>('users').subscribe(res => this.users = User.initArray(res.body));
+    this.getUsers();
   }
 
   openUserDialog() {
@@ -28,6 +29,18 @@ export class UsersPageComponent implements OnInit {
 
     userDialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  getUsers() {
+    this.loading = true;
+    this.http.find<User[]>('users').subscribe(res => {
+      setTimeout(() => { // fake delay  ¯\_(ツ)_/¯
+        this.users = User.initArray(res.body);
+        this.loading = false;
+      }, 500)
+    }, () => {
+      this.loading = false;
     });
   }
 

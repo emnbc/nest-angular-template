@@ -1,4 +1,13 @@
-.loading-wrapper {
-    border: 2px solid #000000;
-    width: max-content;
+.loading {
+    position: relative;
+    &__cover {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255,255,255,.6);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
