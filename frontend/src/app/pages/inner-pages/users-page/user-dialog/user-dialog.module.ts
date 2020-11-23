@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../../../../shared/shared.module';
 import { MaterialModule } from '../../../../shared/material.module';
 import { UserDialogComponent } from './user-dialog.component';
+import { UserFormModule } from '../../../../components/user-form/user-form.module';
 
 
 
@@ -10,7 +11,8 @@ import { UserDialogComponent } from './user-dialog.component';
   declarations: [UserDialogComponent],
   imports: [
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    UserFormModule
   ]
 })
 export class UserDialogModule { }
