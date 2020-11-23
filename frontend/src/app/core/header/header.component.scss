@@ -9,4 +9,12 @@
             margin-left: -8px;
         }
     }
+    &__logo {
+        margin-right: 0.5rem;
+    }
+}
+
+h1 {
+    display: flex;
+    align-items: center;
 }

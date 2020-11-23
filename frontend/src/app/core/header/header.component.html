@@ -1,7 +1,10 @@
 <mat-toolbar class="header-container main-padding" color="primary">
     <div class="header-container__title">
         <button *ngIf="showMenu && mobile" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
-        <h1>Nest Angular Template</h1>
+        <h1>
+            <mat-icon *ngIf="!mobile" class="header-container__logo">stacked_line_chart</mat-icon>
+            <span>Nest Angular Template</span>
+        </h1>
     </div>
     <nav>
         <button *ngIf="user.id" mat-button [matMenuTriggerFor]="menu" aria-label="Profile">

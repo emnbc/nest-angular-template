@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDialogComponent implements OnInit {
 
+  loading: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

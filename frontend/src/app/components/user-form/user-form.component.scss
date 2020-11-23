@@ -1,0 +1,14 @@
+:host {
+    .register {
+        width: 100%;
+        max-width: 400px;
+        &__field {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        &__button-field {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+}
