@@ -1,31 +1,25 @@
-<form [formGroup]="registerFormGroup">
+<form [formGroup]="userFormGroup" (ngSubmit)="submitRegister()">
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" placeholder="Enter your email" required>
-        <mat-error *ngIf="registerFormGroup.controls['email'].invalid">Enter a valid email</mat-error>
+        <mat-error *ngIf="userFormGroup.controls['email'].invalid">Enter a valid email</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>First name</mat-label>
         <input matInput formControlName="firstName" placeholder="Enter your first name" required>
-        <mat-error *ngIf="registerFormGroup.controls['firstName'].invalid">Please enter at least 3 characters</mat-error>
+        <mat-error *ngIf="userFormGroup.controls['firstName'].invalid">Please enter at least 3 characters</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>Last name</mat-label>
         <input matInput formControlName="lastName" placeholder="Enter your last name" required>
-        <mat-error *ngIf="registerFormGroup.controls['lastName'].invalid">Please enter at least 3 characters</mat-error>
+        <mat-error *ngIf="userFormGroup.controls['lastName'].invalid">Please enter at least 3 characters</mat-error>
     </mat-form-field>
     <br>
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>Enter password</mat-label>
         <input matInput type="password" autocomplete="off" formControlName="password" placeholder="Enter password" required>
-        <mat-error *ngIf="registerFormGroup.controls['password'].invalid">Please enter at least 3 characters</mat-error>
+        <mat-error *ngIf="userFormGroup.controls['password'].invalid">Please enter at least 3 characters</mat-error>
     </mat-form-field>
-    <!-- <div class="register__button-field">
-        <button [disabled]="loading" mat-flat-button color="accent" class="w-100" (click)="submitRegister()">
-            <span *ngIf="loading">Creating...</span>
-            <span *ngIf="!loading">Register</span>
-        </button>
-    </div> -->
 </form>
