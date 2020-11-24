@@ -1,17 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'nat-user-dialog',
   templateUrl: './user-dialog.component.html',
   styleUrls: ['./user-dialog.component.scss']
 })
-export class UserDialogComponent implements OnInit {
+export class UserDialogComponent {
 
   loading: boolean = false;
+  submit: Subject<void> = new Subject<void>();
 
-  constructor() { }
+  submitForm() {
+    this.submit.next();
+  }
 
-  ngOnInit(): void {
+  loadingForm(loading: boolean) {
+    this.loading = loading;
+  }
+
+  resultForm(result: any) {
+    console.log("Result in dialog", result);
   }
 
 }
