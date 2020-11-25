@@ -19,11 +19,20 @@ export class UserFormComponent implements OnInit {
   hide: boolean = true;
 
   userFormGroup: FormGroup = this.formBuilder.group({
-    email: [null, [Validators.required, Validators.email]],
     firstName: [null, [Validators.required, Validators.minLength(3)]],
     lastName: [null, [Validators.required, Validators.minLength(3)]],
-    password: [null, [Validators.required, Validators.minLength(3)]]
+    username: [null, [Validators.required, Validators.minLength(3)]],
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(3)]],
+    birthDate: [null, [Validators.required, Validators.minLength(3)]]
   });
+
+  // "firstName": "John",
+	// "lastName": "Dragovich",
+	// "username": "demo",
+	// "email": "demo@demo.com",
+	// "password": "demo",
+	// "birthDate": "1982-11-26"
 
   constructor(
     private formBuilder: FormBuilder,
@@ -48,6 +57,8 @@ export class UserFormComponent implements OnInit {
           this.result.emit({status: 'ERROR', result: null});
         }, 1000);
       });
+    } else {
+      this.userFormGroup.markAllAsTouched();
     }
   }
 

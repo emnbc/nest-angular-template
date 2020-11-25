@@ -29,6 +29,7 @@ export class UsersPageComponent implements OnInit {
 
     userDialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.getUsers();
     });
   }
 

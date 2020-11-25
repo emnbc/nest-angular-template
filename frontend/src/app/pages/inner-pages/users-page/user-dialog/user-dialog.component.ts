@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -11,6 +12,10 @@ export class UserDialogComponent {
   loading: boolean = false;
   submit: Subject<void> = new Subject<void>();
 
+  constructor(
+    public dialogRef: MatDialogRef<UserDialogComponent>
+  ) {}
+
   submitForm() {
     this.submit.next();
   }
@@ -21,6 +26,11 @@ export class UserDialogComponent {
 
   resultForm(result: any) {
     console.log("Result in dialog", result);
+    this.onClose();
+  }
+
+  onClose(): void {
+    this.dialogRef.close();
   }
 
 }
