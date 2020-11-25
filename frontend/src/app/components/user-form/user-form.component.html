@@ -1,11 +1,5 @@
 <form [formGroup]="userFormGroup" (ngSubmit)="submitRegister()">
     <mat-form-field class="register__field" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="Enter your email" required>
-        <mat-error *ngIf="userFormGroup.controls['email'].invalid">Enter a valid email</mat-error>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="register__field" appearance="fill">
         <mat-label>First name</mat-label>
         <input matInput formControlName="firstName" placeholder="Enter your first name" required>
         <mat-error *ngIf="userFormGroup.controls['firstName'].invalid">Please enter at least 3 characters</mat-error>
@@ -16,10 +10,30 @@
         <input matInput formControlName="lastName" placeholder="Enter your last name" required>
         <mat-error *ngIf="userFormGroup.controls['lastName'].invalid">Please enter at least 3 characters</mat-error>
     </mat-form-field>
+    <br>    
+    <mat-form-field class="register__field" appearance="fill">
+        <mat-label>Birth Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="userFormGroup.controls['birthDate'].invalid">This field required</mat-error>
+    </mat-form-field>      
     <br>
+    <mat-form-field class="register__field" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Enter your username" required>
+        <mat-error *ngIf="userFormGroup.controls['username'].invalid">Please enter at least 3 characters</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="register__field" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter your email" required>
+        <mat-error *ngIf="userFormGroup.controls['email'].invalid">Enter a valid email</mat-error>
+    </mat-form-field>
+    <br>    
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>Enter password</mat-label>
         <input matInput type="password" autocomplete="off" formControlName="password" placeholder="Enter password" required>
         <mat-error *ngIf="userFormGroup.controls['password'].invalid">Please enter at least 3 characters</mat-error>
-    </mat-form-field>
+    </mat-form-field>  
 </form>
