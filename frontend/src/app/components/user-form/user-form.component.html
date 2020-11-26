@@ -13,7 +13,7 @@
     <br>    
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>Birth Date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="birthDate" required>
+        <input matInput [matDatepicker]="picker" formControlName="birthDate" format="yyyy-MM-dd" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="userFormGroup.controls['birthDate'].invalid">This field required</mat-error>

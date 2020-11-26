@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
+
+import { FormResult, FormStatus } from '../../../../components/user-form/user-form.component';
 
 @Component({
   selector: 'nat-user-dialog',
@@ -9,8 +11,9 @@ import { Subject } from 'rxjs';
 })
 export class UserDialogComponent {
 
-  loading: boolean = false;
   submit: Subject<void> = new Subject<void>();
+  result: FormResult;
+  formStatus = FormStatus;
 
   constructor(
     public dialogRef: MatDialogRef<UserDialogComponent>
@@ -20,17 +23,17 @@ export class UserDialogComponent {
     this.submit.next();
   }
 
-  loadingForm(loading: boolean) {
-    this.loading = loading;
+  resultForm(result: FormResult) {
+    this.result = result;
+
+    if (this.result.status === this.formStatus.OK) {
+      this.onClose(result);
+    }
+
   }
 
-  resultForm(result: any) {
-    console.log("Result in dialog", result);
-    this.onClose();
-  }
-
-  onClose(): void {
-    this.dialogRef.close();
+  onClose(result: FormResult): void {
+    this.dialogRef.close(result);
   }
 
 }
