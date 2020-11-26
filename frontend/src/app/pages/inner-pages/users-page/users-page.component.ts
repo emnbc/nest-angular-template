@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from '../../../models/user.model';
 import { HttpHelperService } from '../../../services/http-helper.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { FormResult, FormStatus } from '../../../components/user-form/user-form.component';
 
 @Component({
   selector: 'nat-users',
@@ -27,9 +28,10 @@ export class UsersPageComponent implements OnInit {
   openUserDialog() {
     const userDialogRef = this.dialog.open(UserDialogComponent, { width: '500px' });
 
-    userDialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.getUsers();
+    userDialogRef.afterClosed().subscribe((result: FormResult) => {
+      if (result.status === FormStatus.OK) {
+        this.getUsers();
+      }
     });
   }
 
