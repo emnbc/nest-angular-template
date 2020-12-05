@@ -2,7 +2,7 @@
 <mat-dialog-content class="mat-typography">
     <user-form [submit]="submit" (result)="resultForm($event)"></user-form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions class="actions">
     <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">Register</button>
     <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
 </mat-dialog-actions>
