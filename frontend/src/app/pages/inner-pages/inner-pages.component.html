@@ -1,5 +1,5 @@
 <mat-sidenav-container class="nav-container">
-    <mat-sidenav class="nav-container__sidenav-drawer" #snav [mode]="mobile ? 'over' : 'side'" [opened]="mobile ? false : true">
+    <mat-sidenav class="nav-container__sidenav-drawer" #snav [mode]="width <= 960 ? 'over' : 'side'" [opened]="width <= 960 ? false : true">
         <mat-nav-list>
             <a mat-list-item routerLink="/home" routerLinkActive="active"><mat-icon class="icon">home</mat-icon>Home</a>
             <a mat-list-item routerLink="/users" routerLinkActive="active"><mat-icon class="icon">people</mat-icon>Manage users</a>
