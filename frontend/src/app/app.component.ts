@@ -11,16 +11,16 @@ export class AppComponent implements OnInit {
   constructor(private app: AppService) { }
 
   ngOnInit() {
-    this.detectMobile();
+    this.detectWidth();
   }
 
   @HostListener('window:resize', [])
   onResize() {
-    this.detectMobile();
+    this.detectWidth();
   }
 
-  private detectMobile() {
-    this.app.mobile.next(window.innerWidth <= 980 ? true : false);
+  private detectWidth() {
+    this.app.width.next(window.innerWidth);
   }
 
 }

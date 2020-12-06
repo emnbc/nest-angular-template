@@ -14,11 +14,11 @@ export class AppService {
   /**
    * State for show or hide menu
    */
-  menuShower = new BehaviorSubject<boolean>(null);
+  showMenu = new BehaviorSubject<boolean>(null);
 
   /**
-   * Mobile state: true - mobile, false - not mobile.
+   * Width state: global width state in number.
    */
-  mobile = new BehaviorSubject<boolean>(null);
+  width = new BehaviorSubject<number>(null);
 
 }

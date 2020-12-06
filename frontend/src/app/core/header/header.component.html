@@ -1,8 +1,8 @@
 <mat-toolbar class="header-container main-padding" color="primary">
     <div class="header-container__title">
-        <button *ngIf="showMenu && mobile" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
+        <button *ngIf="showMenu && width <= 960" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
         <h1>
-            <mat-icon *ngIf="!mobile" class="header-container__logo">stacked_line_chart</mat-icon>
+            <mat-icon *ngIf="width > 960" class="header-container__logo">stacked_line_chart</mat-icon>
             <span>Nest Angular Template</span>
         </h1>
     </div>

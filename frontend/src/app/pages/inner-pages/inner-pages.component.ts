@@ -13,26 +13,26 @@ import { AppService } from '../../services/app.service';
 export class InnerPagesComponent implements OnInit, OnDestroy {
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
-  mobile: boolean;
+  width: number;
 
   @ViewChild('snav') snav: MatSidenav;
 
   constructor(private app: AppService) { }
 
   ngOnInit(): void {
-    this.app.mobile
+    this.app.width
       .pipe(takeUntil(this.destroyed$))
-      .subscribe(mobile => this.mobile = mobile);
+      .subscribe(width => this.width = width);
 
     this.app.menuSwicher
       .pipe(takeUntil(this.destroyed$))
       .subscribe(() => this.snav.toggle());
 
-    this.app.menuShower.next(true);
+    this.app.showMenu.next(true);
   }
 
   ngOnDestroy(): void {
-    this.app.menuShower.next(false);
+    this.app.showMenu.next(false);
 
     this.destroyed$.next(true);
     this.destroyed$.complete();

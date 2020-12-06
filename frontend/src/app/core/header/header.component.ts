@@ -14,7 +14,7 @@ export class HeaderComponent {
 
   user: User = new User();
   showMenu: boolean;
-  mobile: boolean;
+  width: number;
 
   constructor(
     private router: Router,
@@ -22,8 +22,8 @@ export class HeaderComponent {
     private app: AppService
   ) {
     this.auth.user$.subscribe(user => this.user = user);
-    this.app.menuShower.subscribe(show => this.showMenu = show);
-    this.app.mobile.subscribe(mobile => this.mobile = mobile);
+    this.app.showMenu.subscribe(showMenu => this.showMenu = showMenu);
+    this.app.width.subscribe(width => this.width = width);
   }
 
   logOut() {
