@@ -31,6 +31,14 @@ export class HeaderComponent {
     this.router.navigate(['/welcome']);
   }
 
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  goToHome() {
+    this.router.navigate(['/home']);
+  }
+
   menuSwitch() {
     this.app.menuSwicher.next();
   }

@@ -20,13 +20,13 @@ const routes: Routes = [
       },
       {
         path: 'users',
+        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule),
         canLoad: [IsAuthGuard],
-        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule)
       },
       {
         path: 'about',
+        loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
         canLoad: [IsAuthGuard],
-        loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
       }
     ],
     canActivateChild: [IsAuthGuard]
