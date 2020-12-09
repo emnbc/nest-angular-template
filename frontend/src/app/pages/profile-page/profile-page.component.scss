@@ -1,0 +1,16 @@
+.profile-page {
+    &__row {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    &__name {
+        flex: 0 0 200px;
+        color: #5c5c5c;
+    }
+    &__value {
+        flex: 1 0 auto;
+    }
+    &__divider {
+        margin: 20px 0;
+    }
+}

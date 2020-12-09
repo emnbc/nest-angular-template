@@ -1,9 +1,37 @@
 <div class="responsible-container">
-    <h2>Profile</h2>
-    <p>
-        Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Nunc pulvinar sapien et ligula ullamcorper. Morbi tincidunt augue interdum velit. Sapien et ligula ullamcorper malesuada proin libero. Sed tempus urna et pharetra pharetra massa. Eget nulla facilisi etiam dignissim diam. Enim tortor at auctor urna nunc id cursus metus. Integer eget aliquet nibh praesent tristique magna sit amet purus. Aliquet bibendum enim facilisis gravida. Nullam ac tortor vitae purus faucibus. Enim tortor at auctor urna nunc id. Leo duis ut diam quam nulla porttitor massa. Viverra accumsan in nisl nisi scelerisque eu. Leo duis ut diam quam. At auctor urna nunc id cursus metus aliquam eleifend. 
-    </p>
-    <p>
-        <a routerLink="/home">Go To Home</a>
-    </p>
+    <div class="profile-page">
+        <h2>Profile</h2>
+
+        <mat-divider class="profile-page__divider"></mat-divider>
+
+        <div class="profile-page__row">
+            <div class="profile-page__name">First Name</div>
+            <div class="profile-page__value">{{user?.firstName}}</div>
+        </div>
+        <div class="profile-page__row">
+            <div class="profile-page__name">Last Name</div>
+            <div class="profile-page__value">{{user?.lastName}}</div>
+        </div>
+        <div class="profile-page__row">
+            <div class="profile-page__name">Birth Date</div>
+            <div class="profile-page__value">{{user?.birthDate | date: 'mediumDate'}}</div>
+        </div>
+
+        <mat-divider class="profile-page__divider"></mat-divider>
+
+        <div class="profile-page__row">
+            <div class="profile-page__name">Username</div>
+            <div class="profile-page__value">{{user?.username}}</div>
+        </div>
+        <div class="profile-page__row">
+            <div class="profile-page__name">Email</div>
+            <div class="profile-page__value">{{user?.email}}</div>
+        </div>
+
+        <mat-divider class="profile-page__divider"></mat-divider>
+
+        <p>
+            <a routerLink="/home">Go To Home</a>
+        </p>
+    </div>
 </div>
