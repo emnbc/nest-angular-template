@@ -51,7 +51,7 @@ export class UserFormComponent implements OnInit {
     if(this.userFormGroup.valid) {
       this.result.emit({status: FormStatus.SENDING, result: null});
 
-      this.http.create('users/fake', this.userFormGroup.value).subscribe((res) => {
+      this.http.create('users', this.userFormGroup.value).subscribe((res) => {
         setTimeout(() => { // fake delay
           this.result.emit({status: FormStatus.OK, result: res});
         }, 1000);
