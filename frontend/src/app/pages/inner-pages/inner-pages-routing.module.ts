@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
         canLoad: [IsAuthGuard],
       },
       {
@@ -25,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'about',
-        loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
+        loadChildren: () => import('./about-page/about-page.module').then(m => m.AboutPageModule),
         canLoad: [IsAuthGuard],
       }
     ],
