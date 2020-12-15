@@ -7,7 +7,7 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { FormResult, FormStatus } from '../../../components/user-form/user-form.component';
 
 @Component({
-  selector: 'nat-users',
+  selector: 'nat-users-page',
   templateUrl: './users-page.component.html',
   styleUrls: ['./users-page.component.scss']
 })
