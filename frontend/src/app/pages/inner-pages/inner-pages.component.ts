@@ -31,6 +31,16 @@ export class InnerPagesComponent implements OnInit, OnDestroy {
     this.app.showMenu.next(true);
   }
 
+  get mobile() {
+    return this.width <= 960;
+  }
+
+  toggleMenu() {
+    if (this.mobile) {
+      this.snav.toggle();
+    }
+  }
+
   ngOnDestroy(): void {
     this.app.showMenu.next(false);
 
