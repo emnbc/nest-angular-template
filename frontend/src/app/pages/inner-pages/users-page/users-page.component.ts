@@ -26,7 +26,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   openUserDialog() {
-    const userDialogRef = this.dialog.open(UserDialogComponent, { width: '500px' });
+    const userDialogRef = this.dialog.open(UserDialogComponent, { width: 'calc(100% - 32px)', maxWidth: '500px' });
 
     userDialogRef.afterClosed().subscribe((result: FormResult) => {
       if (result.status === FormStatus.OK) {
