@@ -1,15 +1,15 @@
 <mat-toolbar class="header-container main-padding" color="primary">
     <div class="header-container__title">
-        <button *ngIf="showMenu && width <= 960" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
+        <button *ngIf="showMenu && mobile" mat-icon-button (click)="menuSwitch()" class="margin-right"><mat-icon>menu</mat-icon></button>
         <h1>
-            <mat-icon *ngIf="width > 960" class="header-container__logo">stacked_line_chart</mat-icon>
+            <mat-icon *ngIf="!mobile" class="header-container__logo">stacked_line_chart</mat-icon>
             <span (click)="goToHome()" class="header-container__name">Nest Angular</span>
         </h1>
     </div>
     <nav>
         <button *ngIf="user.id" mat-button [matMenuTriggerFor]="menu" aria-label="Profile">
             <mat-icon class="margin-right">account_box</mat-icon>
-            <span>{{ user.firstName }} {{ user.lastName }}</span>
+            <span>{{ user.firstName }} {{ mobile ? '' : user.lastName }}</span>
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
             <button mat-menu-item (click)="goToProfile()">

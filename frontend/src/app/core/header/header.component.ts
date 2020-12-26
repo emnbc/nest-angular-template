@@ -43,4 +43,8 @@ export class HeaderComponent {
     this.app.menuSwicher.next();
   }
 
+  get mobile() {
+    return this.width <= 960;
+  }
+
 }
