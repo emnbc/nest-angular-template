@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 import { User } from '../../../models/user.model';
 import { HttpHelperService } from '../../../services/http-helper.service';
@@ -9,12 +10,20 @@ import { FormResult, FormStatus } from '../../../components/user-form/user-form.
 @Component({
   selector: 'nat-users-page',
   templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.scss']
+  styleUrls: ['./users-page.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class UsersPageComponent implements OnInit {
 
   users: User[] = [];
   loading: boolean = false;
+  expandedElement: User | null;
 
   constructor(
     private http: HttpHelperService,
@@ -48,5 +57,6 @@ export class UsersPageComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['id', 'username', 'firstName', 'lastName', 'email', 'birthDate'];
+  displayedColumnsTwo: string[] = ['username', 'firstName'];
 
 }
