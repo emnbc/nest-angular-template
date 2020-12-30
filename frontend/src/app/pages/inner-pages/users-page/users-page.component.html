@@ -2,7 +2,7 @@
   <button mat-raised-button color="primary" (click)="openUserDialog()">Create user</button>
 </div>
 <loading [loading]="loading">
-  <table mat-table [dataSource]="users" class="users-table mat-elevation-z2">
+  <table mat-table [dataSource]="users" class="users-table mat-elevation-z1">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -53,5 +53,8 @@
     <tr mat-footer-row *matFooterRowDef="['no-data']" [class.hidden]="users.length > 0"></tr>
   </table>
 </loading>
-  
-  
+
+<mat-paginator  class="pagination-block mat-elevation-z1"
+                [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
