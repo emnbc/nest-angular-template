@@ -55,6 +55,7 @@
 </loading>
 
 <mat-paginator  class="pagination-block mat-elevation-z1"
-                [length]="100"
-                [pageSize]="10"
-                [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                (page)="changePage($event)"
+                [length]="pagination.length"
+                [pageSize]="pagination.pageSize"
+                [pageSizeOptions]="[1, 5, 10, 25, 100]"></mat-paginator>
