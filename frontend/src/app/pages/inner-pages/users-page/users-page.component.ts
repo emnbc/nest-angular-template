@@ -10,6 +10,8 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { FormResult, FormStatus } from '../../../components/user-form/user-form.component';
 import { AppService } from '../../../services/app.service';
 
+
+const DIALOG_CONFIG = { width: 'calc(100% - 32px)', maxWidth: '500px' };
 @Component({
   selector: 'nat-users-page',
   templateUrl: './users-page.component.html',
@@ -22,6 +24,7 @@ export class UsersPageComponent implements OnInit {
   users: User[] = [];
   loading: boolean = false;
   width: number;
+  dialogConfig = DIALOG_CONFIG;
 
   pagination: PageEvent = {
     length: 0,
@@ -35,8 +38,8 @@ export class UsersPageComponent implements OnInit {
 
   get displayedColumns() {
     return this.mobile
-      ? ['id','firstName', 'lastName']
-      : ['id', 'username', 'firstName', 'lastName', 'email', 'birthDate'];
+      ? ['id','firstName', 'lastName', 'edit']
+      : ['id', 'username', 'firstName', 'lastName', 'email', 'birthDate', 'edit'];
   }
 
   constructor(
@@ -52,8 +55,18 @@ export class UsersPageComponent implements OnInit {
     this.getUsers();
   }
 
-  openUserDialog() {
-    const userDialogRef = this.dialog.open(UserDialogComponent, { width: 'calc(100% - 32px)', maxWidth: '500px' });
+  openCreateUserDialog() {
+    const userDialogRef = this.dialog.open(UserDialogComponent, this.dialogConfig);
+
+    userDialogRef.afterClosed().subscribe((result: FormResult) => {
+      if (result && result.status === FormStatus.OK) {
+        this.getUsers();
+      }
+    });
+  }
+
+  openEditUserDialog(user: User) {
+    const userDialogRef = this.dialog.open(UserDialogComponent, { ...this.dialogConfig, data: new User(user) });
 
     userDialogRef.afterClosed().subscribe((result: FormResult) => {
       if (result && result.status === FormStatus.OK) {

@@ -46,6 +46,15 @@ let UsersService = (() => {
                 throw new common_1.InternalServerErrorException();
             }
         }
+        async update(id, userData) {
+            try {
+                await this.usersRepository.update(id, userData);
+                return await this.findOne(id);
+            }
+            catch (err) {
+                throw new common_1.InternalServerErrorException(err);
+            }
+        }
         async findAll(qs) {
             return {
                 count: await this.usersRepository.count(Object.assign({}, qs.where)),

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
+import { User } from '../../../../models/user.model';
 
 import { FormResult, FormStatus } from '../../../../components/user-form/user-form.component';
 
@@ -16,7 +17,8 @@ export class UserDialogComponent {
   formStatus = FormStatus;
 
   constructor(
-    public dialogRef: MatDialogRef<UserDialogComponent>
+    public dialogRef: MatDialogRef<UserDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User
   ) {}
 
   submitForm() {

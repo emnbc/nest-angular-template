@@ -1,4 +1,4 @@
-<form [formGroup]="userFormGroup" (ngSubmit)="submitRegister()">
+<form [formGroup]="userFormGroup" (ngSubmit)="this.isEdit ? submitUpdate() : submitRegister()">
     <mat-form-field class="register__field" appearance="fill">
         <mat-label>First name</mat-label>
         <input matInput formControlName="firstName" placeholder="Enter your first name" required>
@@ -31,7 +31,7 @@
         <mat-error *ngIf="userFormGroup.controls['username'].invalid">Please enter at least 3 characters</mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="register__field" appearance="fill">
+    <mat-form-field *ngIf="!isEdit" class="register__field" appearance="fill">
         <mat-label>Enter password</mat-label>
         <input matInput type="password" autocomplete="off" formControlName="password" placeholder="Enter password" required>
         <mat-error *ngIf="userFormGroup.controls['password'].invalid">Please enter at least 3 characters</mat-error>

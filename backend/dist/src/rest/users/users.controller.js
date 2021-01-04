@@ -16,6 +16,7 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const create_user_dto_1 = require("../../dto/create-user.dto");
+const edit_user_dto_1 = require("../../dto/edit-user.dto");
 const users_service_1 = require("./users.service");
 const qr_interceptor_1 = require("../../interceptors/qr.interceptor");
 let UsersController = (() => {
@@ -25,6 +26,9 @@ let UsersController = (() => {
         }
         create(userData) {
             return this.usersService.create(userData);
+        }
+        update(id, userData) {
+            return this.usersService.update(id, userData);
         }
         findAll(req) {
             return this.usersService.findAll(req.qs);
@@ -43,6 +47,14 @@ let UsersController = (() => {
         __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
         __metadata("design:returntype", Promise)
     ], UsersController.prototype, "create", null);
+    __decorate([
+        common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+        common_1.Put(':id'),
+        __param(0, common_1.Param('id', common_1.ParseIntPipe)), __param(1, common_1.Body()),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Number, edit_user_dto_1.EditUserDto]),
+        __metadata("design:returntype", void 0)
+    ], UsersController.prototype, "update", null);
     __decorate([
         common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
         common_1.UseInterceptors(qr_interceptor_1.QueryResultInterceptor),
