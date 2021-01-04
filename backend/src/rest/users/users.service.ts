@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CreateUserDto } from '../../dto/create-user.dto';
+import { EditUserDto } from '../../dto/edit-user.dto';
 import { User } from '../../entities/user.entity';
 
 @Injectable()
@@ -26,6 +27,17 @@ export class UsersService {
       }
       throw new InternalServerErrorException();
     }
+  }
+
+  async update(id: number, userData: EditUserDto): Promise<any> {
+
+    try {
+      await this.usersRepository.update(id, userData);
+      return await this.findOne(id);
+    } catch (err) {
+      throw new InternalServerErrorException(err);
+    }
+
   }
 
   async findAll(qs: QuerySelecting): Promise<QueryResult> {

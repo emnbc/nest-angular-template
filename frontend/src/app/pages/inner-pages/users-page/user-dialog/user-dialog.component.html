@@ -1,8 +1,11 @@
 <h2 mat-dialog-title>User</h2>
 <mat-dialog-content class="mat-typography">
-    <user-form [submit]="submit" (result)="resultForm($event)"></user-form>
+    <user-form [submit]="submit" (result)="resultForm($event)" [user]="data"></user-form>
 </mat-dialog-content>
 <mat-dialog-actions class="actions">
-    <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">Register</button>
+    <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">
+        <span *ngIf="!data">Register</span>
+        <span *ngIf="data">Update</span>
+    </button>
     <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
 </mat-dialog-actions>

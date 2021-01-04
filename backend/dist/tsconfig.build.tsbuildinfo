@@ -3121,6 +3121,11 @@
         "signature": "32dfcfeb2873d609ab71de7f2de3fbb63c18819a191afe7e0b6e8786c3055f0f",
         "affectsGlobalScope": false
       },
+      "../src/dto/edit-user.dto.ts": {
+        "version": "1dbeb656fd5007d2a19c6744b644b1e5ecdc7f6694a6d1a6931680d8b0c02c58",
+        "signature": "5547da4fe1c9f7d150f3fc729f0a8a783e0ced2cfc3a5c14bfdb4e0214357b5c",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/bcryptjs/index.d.ts": {
         "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
         "signature": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
@@ -3132,8 +3137,8 @@
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.service.ts": {
-        "version": "a737112fa1f9ba11ff92e6a16c14e3acaee49e9d66c94400adc1ad417109e145",
-        "signature": "3bf56f0fa1138999cd3b4c61c196105ebeea650e920b019f4025c1ed9b1635ed",
+        "version": "31efd8d1fa0da17ae199a190935c0b861bfe3045b53c0101b872b4c3c583cae8",
+        "signature": "900317309cfbd0cce9ea89a4ef4d8ccb064bbc087234bfe08990145053e9e5e9",
         "affectsGlobalScope": false
       },
       "../src/rest/auth/auth.service.ts": {
@@ -3667,8 +3672,8 @@
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.controller.ts": {
-        "version": "08b62acfcc12731958ec16aa26e3bfe19ba92b4108934e41c71faef0d640d8c5",
-        "signature": "981b4577c3ccddfe78d7dc53a233b2e3844ac5cebe4da6a025f15a6529c66235",
+        "version": "e84e2a0d283e1f805266db73f4bb9301b3c6c4c48c069600e94f8bf4add73795",
+        "signature": "3fa54af626d732d94c8081af40b0630be0d32935cfa1528a10633bf1e30720d4",
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.module.ts": {
@@ -11208,6 +11213,13 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../src/dto/edit-user.dto.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../src/entities/user.entity.ts": [
         "../node_modules/@types/bcryptjs/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -11341,6 +11353,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../src/dto/create-user.dto.ts",
+        "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts",
         "../src/interceptors/qr.interceptor.ts",
         "../src/rest/auth/guards/jwt-auth.guard.ts",
@@ -11368,6 +11381,7 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/dto/create-user.dto.ts",
+        "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts"
       ]
     },
@@ -18601,12 +18615,14 @@
       "../src/rest/users/users.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/dto/create-user.dto.ts",
+        "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts",
         "../src/rest/users/users.service.ts"
       ],
       "../src/rest/users/users.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/dto/create-user.dto.ts",
+        "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts"
       ]
     },
