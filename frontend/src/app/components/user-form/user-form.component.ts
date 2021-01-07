@@ -52,9 +52,9 @@ export class UserFormComponent implements OnInit {
     this.submit.subscribe(() => this.isEdit ? this.submitUpdate() : this.submitRegister());
     if (this.user) {
       const {id, registerDate, ...other} = this.user;
-      this.userFormGroup.setControl('username', new FormControl({value: this.user.username, disabled: true}));
       this.userFormGroup.setValue(other);
       this.userFormGroup.removeControl('password'); // TO DO
+      this.userFormGroup.setControl('username', new FormControl({value: this.user.username, disabled: true}));
     }
   }
 

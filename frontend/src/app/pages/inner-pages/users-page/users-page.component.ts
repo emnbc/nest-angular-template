@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Sort } from '@angular/material/sort';
 
 import { User } from '../../../models/user.model';
 import { HttpHelperService, Param } from '../../../services/http-helper.service';
@@ -12,6 +13,7 @@ import { AppService } from '../../../services/app.service';
 
 
 const DIALOG_CONFIG = { width: 'calc(100% - 32px)', maxWidth: '500px' };
+
 @Component({
   selector: 'nat-users-page',
   templateUrl: './users-page.component.html',
@@ -73,6 +75,10 @@ export class UsersPageComponent implements OnInit {
         this.getUsers();
       }
     });
+  }
+
+  handleSort(sort: Sort) {
+    console.log(sort);
   }
 
   getUsers() {
