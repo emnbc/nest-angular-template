@@ -2,44 +2,44 @@
   <button mat-raised-button color="primary" (click)="openCreateUserDialog()">Create user</button>
 </div>
 <loading [loading]="loading">
-  <table mat-table [dataSource]="users" class="users-table mat-elevation-z1">
+  <table mat-table matSort  [dataSource]="users" class="users-table mat-elevation-z1" (matSortChange)="handleSort($event)">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- No. Column -->
     <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>No.</th>
         <td mat-cell *matCellDef="let element">{{element.id}}</td>
     </ng-container>
   
     <!-- First Name Column -->
     <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>First Name</th>
       <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
     </ng-container>
   
     <!-- Last Name Column -->
     <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Last Name</th>
       <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
     </ng-container>
     
     <!-- Username Column -->
     <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Username</th>
       <td mat-cell *matCellDef="let element">{{element.username}}</td>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef class="users-grid__email">Email</th>
+      <th mat-header-cell mat-sort-header *matHeaderCellDef class="users-grid__email">Email</th>
       <td mat-cell *matCellDef="let element">{{element.email}}</td>
     </ng-container>
 
     <!-- Birth Date Column -->
     <ng-container matColumnDef="birthDate">
-      <th mat-header-cell *matHeaderCellDef>Birth Date</th>
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Birth Date</th>
       <td mat-cell *matCellDef="let element">{{element.birthDate | date: 'mediumDate'}}</td>
     </ng-container>
 
@@ -47,7 +47,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef class="users-table__edit-header"></th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="openEditUserDialog(element)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button (click)="openEditUserDialog(element)" color="accent"><mat-icon>edit</mat-icon></button>
       </td>
     </ng-container>
 
