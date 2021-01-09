@@ -3137,7 +3137,7 @@
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.service.ts": {
-        "version": "31efd8d1fa0da17ae199a190935c0b861bfe3045b53c0101b872b4c3c583cae8",
+        "version": "3f68d0ca3b934f3355aa991f91ae2348523414122b94878f29fbb7565e9f8da7",
         "signature": "900317309cfbd0cce9ea89a4ef4d8ccb064bbc087234bfe08990145053e9e5e9",
         "affectsGlobalScope": false
       },

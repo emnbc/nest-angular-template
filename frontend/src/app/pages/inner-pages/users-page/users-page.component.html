@@ -1,8 +1,15 @@
 <div class="button-block">
   <button mat-raised-button color="primary" (click)="openCreateUserDialog()">Create user</button>
 </div>
+
 <loading [loading]="loading">
-  <table mat-table matSort  [dataSource]="users" class="users-table mat-elevation-z1" (matSortChange)="handleSort($event)">
+
+  <table  class="users-table mat-elevation-z1"
+          mat-table matSort
+          [dataSource]="users"
+          (matSortChange)="changeSort($event)"
+          matSortActive="id"
+          matSortDirection="asc">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -59,7 +66,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <tr mat-footer-row *matFooterRowDef="['no-data']" [class.hidden]="users.length > 0"></tr>
+    
   </table>
+
 </loading>
 
 <mat-paginator  class="pagination-block mat-elevation-z1"

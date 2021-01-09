@@ -16,7 +16,16 @@ export class UsersService {
 
   async create(userData: CreateUserDto): Promise<any> {
 
-    const user = this.usersRepository.create(userData);
+    const data: CreateUserDto = {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+      username: userData.username,
+      password: userData.password,
+      birthDate: userData.birthDate
+    };
+
+    const user = this.usersRepository.create(data);
 
     try {
       const { password, ...result } = await this.usersRepository.save(user);
@@ -31,8 +40,16 @@ export class UsersService {
 
   async update(id: number, userData: EditUserDto): Promise<any> {
 
+    const data: EditUserDto = {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+      username: userData.username,
+      birthDate: userData.birthDate
+    };
+
     try {
-      await this.usersRepository.update(id, userData);
+      await this.usersRepository.update(id, data);
       return await this.findOne(id);
     } catch (err) {
       throw new InternalServerErrorException(err);
