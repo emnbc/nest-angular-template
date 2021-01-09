@@ -34,7 +34,15 @@ let UsersService = (() => {
             this.usersRepository = usersRepository;
         }
         async create(userData) {
-            const user = this.usersRepository.create(userData);
+            const data = {
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                email: userData.email,
+                username: userData.username,
+                password: userData.password,
+                birthDate: userData.birthDate
+            };
+            const user = this.usersRepository.create(data);
             try {
                 const _a = await this.usersRepository.save(user), { password } = _a, result = __rest(_a, ["password"]);
                 return result;
@@ -47,8 +55,15 @@ let UsersService = (() => {
             }
         }
         async update(id, userData) {
+            const data = {
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                email: userData.email,
+                username: userData.username,
+                birthDate: userData.birthDate
+            };
             try {
-                await this.usersRepository.update(id, userData);
+                await this.usersRepository.update(id, data);
                 return await this.findOne(id);
             }
             catch (err) {

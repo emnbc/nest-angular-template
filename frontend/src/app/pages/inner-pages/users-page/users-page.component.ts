@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
+import { Sort } from '@angular/material/sort';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Sort } from '@angular/material/sort';
 
 import { User } from '../../../models/user.model';
 import { HttpHelperService, Param } from '../../../services/http-helper.service';
@@ -82,22 +82,20 @@ export class UsersPageComponent implements OnInit {
     });
   }
 
-  handleSort(sort: Sort) {
-    this.sort = sort;
-    this.getUsers();
-  }
-
   getUsers() {
     this.loading = true;
 
     const params: Param[] = [
       {key: 'size', value: this.pagination.pageSize},
-      {key: 'page', value: this.pagination.pageIndex + 1},
-      {key: 'sort', value: this.sort.active + ',' + this.sort.direction}
+      {key: 'page', value: this.pagination.pageIndex + 1}
     ]
 
+    if (this.sort.direction) {
+      params.push({key: 'sort', value: this.sort.active + ',' + this.sort.direction});
+    }
+
     this.http.find<User[]>('users', params).subscribe(res => {
-      setTimeout(() => { // fake delay  ¯\_(ツ)_/¯
+      setTimeout(() => {
         this.users = User.initArray(res.body);
         this.pagination.length = +res.headers.get('x-total-count');
         this.loading = false;
@@ -109,6 +107,11 @@ export class UsersPageComponent implements OnInit {
 
   changePage(page: PageEvent) {
     this.pagination = page;
+    this.getUsers();
+  }
+
+  changeSort(sort: Sort) {
+    this.sort = sort;
     this.getUsers();
   }
 
