@@ -34,6 +34,11 @@ export class UsersPageComponent implements OnInit {
     pageIndex: 0
   }
 
+  sort: Sort = {
+    direction: 'asc',
+    active: 'id'
+  };
+
   get mobile() {
     return this.width <= 960;
   }
@@ -78,7 +83,8 @@ export class UsersPageComponent implements OnInit {
   }
 
   handleSort(sort: Sort) {
-    console.log(sort);
+    this.sort = sort;
+    this.getUsers();
   }
 
   getUsers() {
@@ -86,7 +92,8 @@ export class UsersPageComponent implements OnInit {
 
     const params: Param[] = [
       {key: 'size', value: this.pagination.pageSize},
-      {key: 'page', value: this.pagination.pageIndex + 1}
+      {key: 'page', value: this.pagination.pageIndex + 1},
+      {key: 'sort', value: this.sort.active + ',' + this.sort.direction}
     ]
 
     this.http.find<User[]>('users', params).subscribe(res => {
