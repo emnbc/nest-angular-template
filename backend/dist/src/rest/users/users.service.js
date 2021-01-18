@@ -59,9 +59,11 @@ let UsersService = (() => {
                 firstName: userData.firstName,
                 lastName: userData.lastName,
                 email: userData.email,
-                username: userData.username,
                 birthDate: userData.birthDate
             };
+            if (id === 1) {
+                throw new common_1.InternalServerErrorException();
+            }
             try {
                 await this.usersRepository.update(id, data);
                 return await this.findOne(id);
