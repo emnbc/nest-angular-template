@@ -44,9 +44,12 @@ export class UsersService {
       firstName: userData.firstName,
       lastName: userData.lastName,
       email: userData.email,
-      username: userData.username,
       birthDate: userData.birthDate
     };
+
+    if (id === 1) {
+      throw new InternalServerErrorException();
+    }
 
     try {
       await this.usersRepository.update(id, data);

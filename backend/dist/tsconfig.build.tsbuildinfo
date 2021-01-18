@@ -3122,8 +3122,8 @@
         "affectsGlobalScope": false
       },
       "../src/dto/edit-user.dto.ts": {
-        "version": "1dbeb656fd5007d2a19c6744b644b1e5ecdc7f6694a6d1a6931680d8b0c02c58",
-        "signature": "5547da4fe1c9f7d150f3fc729f0a8a783e0ced2cfc3a5c14bfdb4e0214357b5c",
+        "version": "dacf9613028407cf477bc5e9e9bb6db9e46c9378c8a0a3f105d82debcdaa00ad",
+        "signature": "5c6972d53e2dbd710b392a2042d25de12e170075b7596392064a7e2eef32d73e",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/bcryptjs/index.d.ts": {
@@ -3137,7 +3137,7 @@
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.service.ts": {
-        "version": "3f68d0ca3b934f3355aa991f91ae2348523414122b94878f29fbb7565e9f8da7",
+        "version": "a9f364a0f8797183282fbc5124b62b9107751d24719fe6b0bee653247bd60cd8",
         "signature": "900317309cfbd0cce9ea89a4ef4d8ccb064bbc087234bfe08990145053e9e5e9",
         "affectsGlobalScope": false
       },
