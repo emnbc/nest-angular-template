@@ -16,8 +16,8 @@ export class HttpHelperService {
     return this.http.post(`${environment.apiUrl}/auth/login`, authData);
   }
 
-  find<T>(url: string, paramsList?: Param[]): Observable<HttpResponse<T>> {
-    return this.http.get<T>(`${environment.apiUrl}/${url}`, {observe: 'response', ...paramsList && {params: this.setParams(paramsList)}});
+  find<T>(url: string, params?: Params): Observable<HttpResponse<T>> {
+    return this.http.get<T>(`${environment.apiUrl}/${url}`, {observe: 'response', ...params && {params: this.setParams(params)}});
   }
 
   create<T>(url: string, body: T): Observable<T> {
@@ -28,17 +28,18 @@ export class HttpHelperService {
     return this.http.put<T>(`${environment.apiUrl}/${url}/${id}`, body);
   }
 
-  setParams(paramsList?: Param[]): any {
+  setParams(paramsObj: Params) {
     let params = new HttpParams();
-    for(const param of paramsList) {
-      if(param.value) params = params.set(param.key, param.value.toString());
+    for(let key in paramsObj) {
+      if (paramsObj[key]) {
+        params = params.set(key, paramsObj[key].toString());
+      }
     }
     return params;
   }
 
 }
 
-export interface Param {
-  key: string;
-  value: string | number;
+export interface Params {
+  [key: string]: string | number;
 }

@@ -6,7 +6,7 @@ import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { User } from '../../../models/user.model';
-import { HttpHelperService, Param } from '../../../services/http-helper.service';
+import { HttpHelperService, Params } from '../../../services/http-helper.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { FormResult, FormStatus } from '../../../components/user-form/user-form.component';
 import { AppService } from '../../../services/app.service';
@@ -85,14 +85,11 @@ export class UsersPageComponent implements OnInit {
   getUsers() {
     this.loading = true;
 
-    const params: Param[] = [
-      {key: 'size', value: this.pagination.pageSize},
-      {key: 'page', value: this.pagination.pageIndex + 1}
-    ]
-
-    if (this.sort.direction) {
-      params.push({key: 'sort', value: this.sort.active + ',' + this.sort.direction});
-    }
+    const params: Params = {
+      size: this.pagination.pageSize,
+      page: this.pagination.pageIndex + 1,
+      ...this.sort.direction && {sort: this.sort.active + ',' + this.sort.direction}
+    };
 
     this.http.find<User[]>('users', params).subscribe(res => {
       setTimeout(() => {
