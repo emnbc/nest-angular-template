@@ -1,0 +1,15 @@
+:host {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    max-width: 400px;
+    width: calc(100% - 32px);
+    &__field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

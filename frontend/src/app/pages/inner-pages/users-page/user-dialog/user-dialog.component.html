@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>User</h2>
 <mat-dialog-content class="mat-typography">
-    <user-form [submit]="submit" (result)="resultForm($event)" [user]="data"></user-form>
+    <user-registration [submit]="submit" (result)="resultForm($event)" [user]="data"></user-registration>
 </mat-dialog-content>
 <mat-dialog-actions class="actions">
     <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">

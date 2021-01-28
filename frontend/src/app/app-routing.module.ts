@@ -10,15 +10,20 @@ const routes: Routes = [
     canLoad: [IsNotAuthGuard]
   },
   {
+    path: 'sign-in',
+    loadChildren: () => import('./pages/sign-in-page/sign-in-page.module').then(m => m.SignInPageModule),
+    canLoad: [IsNotAuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register-page/register-page.module').then(m => m.RegisterPageModule),
+    canLoad: [IsNotAuthGuard]
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./pages/profile-page/profile-page.module').then(m => m.ProfilePageModule),
     canLoad: [IsAuthGuard]
   },
-  {
-    path: 'sign-in',
-    loadChildren: () => import('./pages/sign-in-page/sign-in-page.module').then(m => m.SignInPageModule),
-    canLoad: [IsNotAuthGuard]
-  }
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { takeUntil } from 'rxjs/operators';
 import { User } from '../../../models/user.model';
 import { HttpHelperService, Params } from '../../../services/http-helper.service';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
-import { FormResult, FormStatus } from '../../../components/user-form/user-form.component';
+import { FormResult, FormStatus } from '../../../components/user-registration/user-registration.component';
 import { AppService } from '../../../services/app.service';
 
 
