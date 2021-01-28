@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { MaterialModule } from '../../shared/material.module';
 
-import { UserFormComponent } from './user-form.component';
+import { UserRegistrationComponent } from './user-registration.component';
 
 
 
 @NgModule({
-  declarations: [UserFormComponent],
+  declarations: [UserRegistrationComponent],
   imports: [
     SharedModule,
     MaterialModule
   ],
-  exports: [UserFormComponent]
+  exports: [UserRegistrationComponent]
 })
-export class UserFormModule { }
+export class UserRegistrationModule { }

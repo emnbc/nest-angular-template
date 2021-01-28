@@ -1,1 +1,19 @@
-<p>register-page works!</p>
+<mat-card class="register-container">
+    <mat-card-content>
+    
+        <h3>Registration</h3>
+
+        <user-registration [submit]="submit" (result)="resultForm($event)"></user-registration>
+
+        <div class="register-container__field">
+            <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">
+                Register
+            </button>
+        </div>
+
+        <p>
+            <span>Already have an account? </span><a routerLink="/sign-in">Login</a>
+        </p>
+
+    </mat-card-content>
+</mat-card>

@@ -17,11 +17,11 @@ export interface FormResult {
 }
 
 @Component({
-  selector: 'user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+  selector: 'user-registration',
+  templateUrl: './user-registration.component.html',
+  styleUrls: ['./user-registration.component.scss']
 })
-export class UserFormComponent implements OnInit {
+export class UserRegistrationComponent implements OnInit {
 
   @Input() user?: User;
   @Input() submit: Subject<void> = new Subject<void>();

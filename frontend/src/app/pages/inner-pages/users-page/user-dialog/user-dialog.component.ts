@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Subject } from 'rxjs';
 import { User } from '../../../../models/user.model';
 
-import { FormResult, FormStatus } from '../../../../components/user-form/user-form.component';
+import { FormResult, FormStatus } from '../../../../components/user-registration/user-registration.component';
 
 @Component({
   selector: 'nat-user-dialog',
@@ -28,7 +28,7 @@ export class UserDialogComponent {
   resultForm(result: FormResult) {
     this.result = result;
 
-    if (this.result.status === this.formStatus.OK) {
+    if (this.result.status === FormStatus.OK) {
       this.onClose(result);
     }
 
