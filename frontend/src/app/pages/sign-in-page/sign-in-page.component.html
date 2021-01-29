@@ -26,7 +26,7 @@
             </mat-form-field>
 
             <div class="login-container__field">
-                <button mat-raised-button [disabled]="loading" type="submit" color="accent">
+                <button class="login-container__submit" mat-raised-button [disabled]="loading" type="submit" color="accent">
                     <span *ngIf="loading">Processing...</span>
                     <span *ngIf="!loading">Login</span>
                 </button>
@@ -36,9 +36,9 @@
 
         </form>
 
-        <p>
+        <p class="login-container__register-button">
             <span>Don’t have an account? </span>
-            <a routerLink="/register">Register</a>
+            <a class="brand-link" routerLink="/register">Register</a>
         </p>
 
     </mat-card-content>

@@ -28,4 +28,8 @@ export class RegisterPageComponent {
     }
   }
 
+  get loading() {
+    return this.result?.status === this.formStatus.SENDING;
+  }
+
 }

@@ -38,4 +38,8 @@ export class UserDialogComponent {
     this.dialogRef.close(result);
   }
 
+  get loading() {
+    return this.result?.status === this.formStatus.SENDING;
+  }
+
 }

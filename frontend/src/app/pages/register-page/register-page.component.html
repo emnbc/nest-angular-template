@@ -6,13 +6,14 @@
         <user-registration [submit]="submit" (result)="resultForm($event)"></user-registration>
 
         <div class="register-container__field">
-            <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">
-                Register
+            <button class="register-container__submit" [disabled]="loading" (click)="submitForm()" mat-flat-button color="accent">
+                <span *ngIf="loading">Processing...</span>
+                <span *ngIf="!loading">Register</span>
             </button>
         </div>
 
-        <p>
-            <span>Already have an account? </span><a routerLink="/sign-in">Login</a>
+        <p class="register-container__login-button">
+            <span>Already have an account? </span><a class="brand-link" routerLink="/sign-in">Login</a>
         </p>
 
     </mat-card-content>
