@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+$brand-color: #546E7A;
+$brand-color-lite: #CFD8DC;
+
 html {
     height: 100%;
     font-size: 14px;
@@ -40,4 +43,13 @@ body {
     padding: 16px 16px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.brand-link {
+    text-decoration: none;
+    color: $brand-color;
+    border-bottom: 1px solid $brand-color-lite;
+    &:hover {
+        border-bottom-color: $brand-color;
+    }
 }
