@@ -3,9 +3,12 @@
     <user-registration [submit]="submit" (result)="resultForm($event)" [user]="data"></user-registration>
 </mat-dialog-content>
 <mat-dialog-actions class="actions">
-    <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">
-        <span *ngIf="!data">Register</span>
-        <span *ngIf="data">Update</span>
+    <button [disabled]="loading" (click)="submitForm()" mat-flat-button color="accent">
+        <span *ngIf="loading">Processing...</span>
+        <span *ngIf="!loading">
+            <span *ngIf="!data">Register</span>
+            <span *ngIf="data">Update</span>
+        </span>
     </button>
     <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
 </mat-dialog-actions>

@@ -6,8 +6,9 @@
         <user-registration [submit]="submit" (result)="resultForm($event)"></user-registration>
 
         <div class="register-container__field">
-            <button [disabled]="result?.status === formStatus.SENDING" (click)="submitForm()" mat-flat-button color="accent">
-                Register
+            <button [disabled]="loading" (click)="submitForm()" mat-flat-button color="accent">
+                <span *ngIf="loading">Processing...</span>
+                <span *ngIf="!loading">Register</span>
             </button>
         </div>
 
