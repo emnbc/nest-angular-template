@@ -10,7 +10,7 @@ import { HttpHelperService } from './http-helper.service';
 export class AuthService {
 
   private _token: string = null;
-  user$ = new BehaviorSubject<User>(new User());
+  user = new BehaviorSubject<User>(new User());
 
   constructor(private http: HttpHelperService) {}
   
@@ -34,19 +34,19 @@ export class AuthService {
   }
 
   getTokenFromStorage(): string {
-    if(localStorage.getItem('token')) {
+    if (localStorage.getItem('token')) {
       return localStorage.getItem('token')
     } else return null;
   }
 
   checkAuthorization(): Observable<boolean>  {
-    if(this.user$.getValue().id) {
+    if (this.user.getValue().id) {
       return of(true);
     }
-    if(this.token) {
+    if (this.token) {
       return this.http.find<User>('auth/me').pipe(map(res => {
-        if(res.body && res.body.id) {
-          this.user$.next(new User(res.body));
+        if (res?.body?.id) {
+          this.user.next(new User(res.body));
           return true;
         } else {
           return false;
@@ -62,7 +62,7 @@ export class AuthService {
   logOut(): void {
     this.token = null;
     localStorage.removeItem('token');
-    this.user$.next(new User());
+    this.user.next(new User());
   }
 
 }

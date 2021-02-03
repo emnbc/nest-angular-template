@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, Route, CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, Route, CanActivate, CanActivateChild, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map} from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
@@ -14,25 +14,24 @@ export class IsAuthGuard implements CanActivate, CanActivateChild, CanLoad {
     public auth: AuthService
   ) { }
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
     return this.checkLogin();
   }
 
-  canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> {
     return this.checkLogin();
   }
 
-  canLoad(route: Route): Observable<boolean>  {
+  canLoad(route: Route): Observable<boolean | UrlTree>  {
     return this.checkLogin();
   }
 
   checkLogin() {
-    return this.auth.checkAuthorization().pipe(map(res => {
-      if(res) {
+    return this.auth.checkAuthorization().pipe(map(isAuth => {
+      if (isAuth) {
         return true;
       } else {
-        this.router.navigate(['/welcome']);
-        return false;
+        return this.router.parseUrl('/welcome');
       }
     }));
   }
