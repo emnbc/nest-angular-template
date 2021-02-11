@@ -1,5 +1,6 @@
 import { Injectable, InternalServerErrorException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { MailService } from '../../mailer/mail.service';
 import { Repository } from 'typeorm';
 
 import { CreateUserDto } from '../../dto/create-user.dto';
@@ -11,7 +12,8 @@ export class UsersService {
 
   constructor(
     @InjectRepository(User)
-    private readonly usersRepository: Repository<User>
+    private readonly usersRepository: Repository<User>,
+    private mail: MailService
   ) { }
 
   async create(userData: CreateUserDto): Promise<any> {
@@ -61,6 +63,7 @@ export class UsersService {
   }
 
   async findAll(qs: QuerySelecting): Promise<QueryResult> {
+    this.mail.send();
     return {
       count: await this.usersRepository.count({ ...qs.where }),
       result: await this.usersRepository.find({ ...qs })

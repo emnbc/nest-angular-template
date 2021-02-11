@@ -26,12 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const mail_service_1 = require("../../mailer/mail.service");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("../../entities/user.entity");
 let UsersService = (() => {
     let UsersService = class UsersService {
-        constructor(usersRepository) {
+        constructor(usersRepository, mail) {
             this.usersRepository = usersRepository;
+            this.mail = mail;
         }
         async create(userData) {
             const data = {
@@ -73,6 +75,7 @@ let UsersService = (() => {
             }
         }
         async findAll(qs) {
+            this.mail.send();
             return {
                 count: await this.usersRepository.count(Object.assign({}, qs.where)),
                 result: await this.usersRepository.find(Object.assign({}, qs))
@@ -94,7 +97,8 @@ let UsersService = (() => {
     UsersService = __decorate([
         common_1.Injectable(),
         __param(0, typeorm_1.InjectRepository(user_entity_1.User)),
-        __metadata("design:paramtypes", [typeorm_2.Repository])
+        __metadata("design:paramtypes", [typeorm_2.Repository,
+            mail_service_1.MailService])
     ], UsersService);
     return UsersService;
 })();

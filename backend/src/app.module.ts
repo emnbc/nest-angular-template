@@ -11,8 +11,24 @@ import { DatabaseConfig } from './config/db.config';
 import { StaticConfig } from './config/static.config';
 import { QuerySelectingMiddleware } from './middleware/qs.middleware';
 
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+
 @Module({
   imports: [
+    MailerModule.forRoot({
+      transport: 'smtps://elias53@ethereal.email:JKQy7ydZUjMfNBstF9@smtp.ethereal.email',
+      defaults: {
+        from:'"nest-modules" <elias53@ethereal.email>',
+      },
+      template: {
+        dir: __dirname + '/templates',
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
+      },
+    }),
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     ServeStaticModule.forRootAsync({ imports: [ConfigModule], useClass: StaticConfig }),
     TypeOrmModule.forRootAsync({ imports: [ConfigModule], useClass: DatabaseConfig }),
