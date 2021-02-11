@@ -18,7 +18,6 @@ let MailService = (() => {
             this.mailerService = mailerService;
         }
         send() {
-            console.log('asdfsdf');
             this.mailerService.sendMail({
                 to: 'elias53@ethereal.email',
                 from: 'elias53@ethereal.email',

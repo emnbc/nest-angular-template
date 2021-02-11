@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/mailer/mail.service.ts": {
-        "version": "1803313f388d72b1e217477158f3c1bc9ded8db2616310532fda18fe175399d0",
+        "version": "a5c71bebbfcd3a8afb6f5d418024937f29d355a98096fac144f65f87cc691bb2",
         "signature": "58894d265d17342978bd636dad8fef058a01c921d0e48deb98e1d1210baf04ed",
         "affectsGlobalScope": false
       },
