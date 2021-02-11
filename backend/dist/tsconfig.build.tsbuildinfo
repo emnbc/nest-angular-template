@@ -3802,7 +3802,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "2bf4e723c3d7466ff3faf3dfbc905d87cacd09d0136fcb91ec3a9810a689c4fb",
+        "version": "4eefdde278e4b27814374dcfa288db48b581805890530b7650e6ea94f17402f4",
         "signature": "843f051400e86a3e4de923e5b7271bfa660bd889abf5fee0dce89d6ded83b42c",
         "affectsGlobalScope": false
       },

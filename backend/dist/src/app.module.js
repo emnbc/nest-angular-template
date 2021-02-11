@@ -35,10 +35,7 @@ let AppModule = (() => {
                     transport: {
                         host: "smtp.ethereal.email",
                         port: 587,
-                        auth: {
-                            user: "elias53@ethereal.email",
-                            pass: "JKQy7ydZUjMfNBstF9",
-                        },
+                        auth: { user: "elias53@ethereal.email", pass: "JKQy7ydZUjMfNBstF9" },
                     },
                     defaults: {
                         from: '"nest-modules" <elias53@ethereal.email>',
