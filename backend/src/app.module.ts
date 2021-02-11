@@ -17,7 +17,11 @@ import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handleba
 @Module({
   imports: [
     MailerModule.forRoot({
-      transport: 'smtps://elias53@ethereal.email:JKQy7ydZUjMfNBstF9@smtp.ethereal.email',
+      transport: {
+        host: "smtp.ethereal.email",
+        port: 587,
+        auth: { user: "elias53@ethereal.email", pass: "JKQy7ydZUjMfNBstF9" },
+      },
       defaults: {
         from:'"nest-modules" <elias53@ethereal.email>',
       },
