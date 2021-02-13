@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Simple Transactional Email</title>
+
+        <style>
+            /* All the styling goes here */
+            p {
+                margin: 10px 0;
+            }
+
+            h2 {
+                margin-bottom: 30px;
+            }
+
+            .footer {
+                margin-top: 40px;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <h2>This is preheader text. Some clients will show this text as a preview.</h2>
+
+        <p>Hi there,</p>
+        <p>
+            <strong>User:</strong> {{firstName}} {{lastName}} <br>
+            <strong>Email:</strong> {{email}}
+        </p>
+
+        <div class="footer">&copy; <em>emnbc.com</em></div>
+
+    </body>
+
+</html>

@@ -17,9 +17,9 @@ const app_controller_1 = require("./app.controller");
 const configuration_1 = require("./config/configuration");
 const db_config_1 = require("./config/db.config");
 const static_config_1 = require("./config/static.config");
+const mail_config_1 = require("./config/mail.config");
 const qs_middleware_1 = require("./middleware/qs.middleware");
 const mailer_1 = require("@nestjs-modules/mailer");
-const handlebars_adapter_1 = require("@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
 let AppModule = (() => {
     let AppModule = class AppModule {
         configure(consumer) {
@@ -31,23 +31,7 @@ let AppModule = (() => {
     AppModule = __decorate([
         common_1.Module({
             imports: [
-                mailer_1.MailerModule.forRoot({
-                    transport: {
-                        host: "smtp.ethereal.email",
-                        port: 587,
-                        auth: { user: "elias53@ethereal.email", pass: "JKQy7ydZUjMfNBstF9" },
-                    },
-                    defaults: {
-                        from: '"nest-modules" <elias53@ethereal.email>',
-                    },
-                    template: {
-                        dir: __dirname + '/templates',
-                        adapter: new handlebars_adapter_1.HandlebarsAdapter(),
-                        options: {
-                            strict: true,
-                        },
-                    },
-                }),
+                mailer_1.MailerModule.forRoot(mail_config_1.mailConfig),
                 config_1.ConfigModule.forRoot({ isGlobal: true, load: [configuration_1.configuration] }),
                 serve_static_1.ServeStaticModule.forRootAsync({ imports: [config_1.ConfigModule], useClass: static_config_1.StaticConfig }),
                 typeorm_1.TypeOrmModule.forRootAsync({ imports: [config_1.ConfigModule], useClass: db_config_1.DatabaseConfig }),
