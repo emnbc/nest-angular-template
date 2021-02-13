@@ -31,6 +31,12 @@ export class UsersService {
 
     try {
       const { password, ...result } = await this.usersRepository.save(user);
+      this.mail.send({
+        email: result.email,
+        firstName: result.firstName,
+        lastName: result.lastName,
+        username: result.username
+      });
       return result;
     } catch (err) {
       if (err.code === '23505') {
@@ -63,7 +69,6 @@ export class UsersService {
   }
 
   async findAll(qs: QuerySelecting): Promise<QueryResult> {
-    this.mail.send();
     return {
       count: await this.usersRepository.count({ ...qs.where }),
       result: await this.usersRepository.find({ ...qs })

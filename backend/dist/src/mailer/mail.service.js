@@ -17,14 +17,26 @@ let MailService = (() => {
         constructor(mailerService) {
             this.mailerService = mailerService;
         }
-        send() {
+        send(userData) {
+            console.log(userData);
             this.mailerService.sendMail({
-                to: 'elias53@ethereal.email',
+                to: userData.email,
                 from: 'elias53@ethereal.email',
-                subject: 'Testing Nest MailerModule ✔',
-                text: 'welcome',
-                html: '<b>welcome</b>',
-            }).then(() => { }).catch(() => { });
+                subject: 'Welcome to EMNBC',
+                template: 'welcome',
+                context: {
+                    firstName: userData.firstName,
+                    lastName: userData.lastName,
+                    email: userData.email,
+                    username: userData.username,
+                },
+            })
+                .then(res => {
+                console.log(res, '123');
+            })
+                .catch(err => {
+                console.log(err, '654');
+            });
         }
     };
     MailService = __decorate([

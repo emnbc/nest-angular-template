@@ -9,30 +9,14 @@ import { AppController } from './app.controller';
 import { configuration } from './config/configuration';
 import { DatabaseConfig } from './config/db.config';
 import { StaticConfig } from './config/static.config';
+import { mailConfig } from './config/mail.config';
 import { QuerySelectingMiddleware } from './middleware/qs.middleware';
 
 import { MailerModule } from '@nestjs-modules/mailer';
-import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
 @Module({
   imports: [
-    MailerModule.forRoot({
-      transport: {
-        host: "smtp.ethereal.email",
-        port: 587,
-        auth: { user: "elias53@ethereal.email", pass: "JKQy7ydZUjMfNBstF9" },
-      },
-      defaults: {
-        from:'"nest-modules" <elias53@ethereal.email>',
-      },
-      template: {
-        dir: __dirname + '/templates',
-        adapter: new HandlebarsAdapter(),
-        options: {
-          strict: true,
-        },
-      },
-    }),
+    MailerModule.forRoot(mailConfig),
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     ServeStaticModule.forRootAsync({ imports: [ConfigModule], useClass: StaticConfig }),
     TypeOrmModule.forRootAsync({ imports: [ConfigModule], useClass: DatabaseConfig }),

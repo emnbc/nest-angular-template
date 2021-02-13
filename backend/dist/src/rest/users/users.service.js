@@ -47,6 +47,12 @@ let UsersService = (() => {
             const user = this.usersRepository.create(data);
             try {
                 const _a = await this.usersRepository.save(user), { password } = _a, result = __rest(_a, ["password"]);
+                this.mail.send({
+                    email: result.email,
+                    firstName: result.firstName,
+                    lastName: result.lastName,
+                    username: result.username
+                });
                 return result;
             }
             catch (err) {
@@ -75,7 +81,6 @@ let UsersService = (() => {
             }
         }
         async findAll(qs) {
-            this.mail.send();
             return {
                 count: await this.usersRepository.count(Object.assign({}, qs.where)),
                 result: await this.usersRepository.find(Object.assign({}, qs))
