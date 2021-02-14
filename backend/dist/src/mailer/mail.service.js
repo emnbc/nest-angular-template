@@ -18,10 +18,9 @@ let MailService = (() => {
             this.mailerService = mailerService;
         }
         send(userData) {
-            console.log(userData);
             this.mailerService.sendMail({
                 to: userData.email,
-                from: 'elias53@ethereal.email',
+                from: 'noreply@emnbc.com',
                 subject: 'Welcome to EMNBC',
                 template: 'welcome',
                 context: {
@@ -31,12 +30,8 @@ let MailService = (() => {
                     username: userData.username,
                 },
             })
-                .then(res => {
-                console.log(res, '123');
-            })
-                .catch(err => {
-                console.log(err, '654');
-            });
+                .then(() => { })
+                .catch(() => { });
         }
     };
     MailService = __decorate([

@@ -3,16 +3,21 @@
     <head>
         <meta name="viewport" content="width=device-width" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Simple Transactional Email</title>
+        <title>Welcome to EMNBC</title>
 
         <style>
             /* All the styling goes here */
+            body {
+                margin: 15px;
+            }
+
             p {
                 margin: 10px 0;
             }
 
             h2 {
                 margin-bottom: 30px;
+                color: #0277bd;
             }
 
             .footer {
@@ -23,12 +28,15 @@
     </head>
     <body>
 
-        <h2>This is preheader text. Some clients will show this text as a preview.</h2>
+        <h2>Welcome to EMNBC Systems.</h2>
 
-        <p>Hi there,</p>
+        <p>Hi <strong>{{firstName}}</strong>,</p>
+
+        <p>Your registration data:</p>
         <p>
-            <strong>User:</strong> {{firstName}} {{lastName}} <br>
-            <strong>Email:</strong> {{email}}
+            <strong>User:</strong> {{firstName}} {{lastName}}<br>
+            <strong>Email:</strong> {{email}}<br>
+            <strong>Username:</strong> {{username}}
         </p>
 
         <div class="footer">&copy; <em>emnbc.com</em></div>

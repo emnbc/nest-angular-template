@@ -13,10 +13,9 @@ export class MailService {
   constructor(private readonly mailerService: MailerService) {}
   
   public send(userData: UserEmail): void {
-    console.log(userData);
     this.mailerService.sendMail({
       to: userData.email,
-      from: 'elias53@ethereal.email',
+      from: 'noreply@emnbc.com',
       subject: 'Welcome to EMNBC',
       template: 'welcome',
       context: {
