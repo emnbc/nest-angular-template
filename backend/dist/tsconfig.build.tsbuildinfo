@@ -3162,7 +3162,7 @@
         "affectsGlobalScope": false
       },
       "../src/mailer/mail.service.ts": {
-        "version": "592089669c60b8d2720303cc1b20f1ca51b71ec73798818983693808bb8224be",
+        "version": "2038a7003fe78af043d0196c80742690c5a5fd35f1d3b496e1064de84d662d0c",
         "signature": "8e92ffc6601d139b7f95dde4c995d82558fe625b9f32478bf455cdd2975d5185",
         "affectsGlobalScope": false
       },
@@ -3802,7 +3802,7 @@
         "affectsGlobalScope": false
       },
       "../src/config/mail.config.ts": {
-        "version": "3844070dde48d38ef33ddb0e17d2b332cfca17f26232324029a979780fd110d3",
+        "version": "f7b4a4d8b9c45b91382d244284f33e6a21508da8b695929ee69561b3b7367873",
         "signature": "6077d24d2c895bf5d090a2fb2c7fedd6dba5b69c0d96299fbb59cd1b60f72787",
         "affectsGlobalScope": false
       },
