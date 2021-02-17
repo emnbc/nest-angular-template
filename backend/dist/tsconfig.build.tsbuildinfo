@@ -3727,7 +3727,7 @@
         "affectsGlobalScope": false
       },
       "../src/services/excel.service.ts": {
-        "version": "1a92b94e8d667f6074d4fa8095e4ff555b5b11991f48a87ad387b353bee3cc22",
+        "version": "1cbb34946b9a59f75493695168ae183e8ace660660610ababeb41d646d8978ff",
         "signature": "042bdd9f21f0b5e5838b2fe89e846e2e2550436ad9bf1e8e51d5d13d58f1dd45",
         "affectsGlobalScope": false
       },
