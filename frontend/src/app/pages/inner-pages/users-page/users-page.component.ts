@@ -112,6 +112,26 @@ export class UsersPageComponent implements OnInit {
     this.getUsers();
   }
 
+  async downloadUsersList() {
+      this.http.download('users/download/run').subscribe((response: any) => {
+
+        const blob = new Blob([response], {type : 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+        const url = window.URL.createObjectURL(blob);
+        const link: any = document.createElement('a');
+        link.href = url;
+  
+        let fileName = 'users';
+  
+        link.setAttribute('download', fileName);
+  
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+
+      });
+  }
+
   ngOnDestroy(): void {
     this.destroyed$.next(true);
     this.destroyed$.complete();

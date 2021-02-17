@@ -31,6 +31,7 @@
     "@nestjs/typeorm": "^7.0.1",
     "@types/express-serve-static-core": "^4.17.7",
     "bcryptjs": "^2.4.3",
+    "exceljs": "^4.2.0",
     "handlebars": "^4.7.6",
     "nodemailer": "^6.4.17",
     "passport": "^0.4.1",

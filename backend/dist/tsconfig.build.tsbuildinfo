@@ -3161,7 +3161,7 @@
         "signature": "35d886b8d896fe37b23c6baf6558f01f98fae7eb8e04ab72fda918d0281a5309",
         "affectsGlobalScope": false
       },
-      "../src/mailer/mail.service.ts": {
+      "../src/services/mail.service.ts": {
         "version": "2038a7003fe78af043d0196c80742690c5a5fd35f1d3b496e1064de84d662d0c",
         "signature": "8e92ffc6601d139b7f95dde4c995d82558fe625b9f32478bf455cdd2975d5185",
         "affectsGlobalScope": false
@@ -3187,8 +3187,8 @@
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.service.ts": {
-        "version": "1047add621fb2ea80a8aa124b9936c51e90ec0c01a342535069599aca2522831",
-        "signature": "0b4571c9b9c2a227c35799be84275778fe6946194331f968bafa6b0e1090696e",
+        "version": "0de63e4d1225af970756d89d9e295b398cf539be7561407970d73f8e453ccab5",
+        "signature": "6bdc2f4add8dd20a83ced574a78f6465b8f22fb6fff84e954b61b78c0dbed6cb",
         "affectsGlobalScope": false
       },
       "../src/rest/auth/auth.service.ts": {
@@ -3721,18 +3721,23 @@
         "signature": "1e3c1fa1b08fdb34137179e65bdd684c7761cf2bb7e3237afbfc6f4579b4dc4f",
         "affectsGlobalScope": false
       },
-      "../src/rest/users/users.controller.ts": {
-        "version": "13dce7c49aef6c857d1c9f8e83afd135cf57af6f16c6042aaffdd83d5673f53d",
-        "signature": "3fa54af626d732d94c8081af40b0630be0d32935cfa1528a10633bf1e30720d4",
+      "../node_modules/exceljs/index.d.ts": {
+        "version": "6fb68012d14b379fe2896a3ab584437c6f2c7a73c64993a48bdd5cc5f109e6d6",
+        "signature": "6fb68012d14b379fe2896a3ab584437c6f2c7a73c64993a48bdd5cc5f109e6d6",
         "affectsGlobalScope": false
       },
-      "../src/mailer/mail.module.ts": {
-        "version": "f6762f94be430d631e62a4a6a15e853a9038c5ceca5f934859facbade4676a93",
-        "signature": "6d1d5741b9310eb74d0cdd57f53757cc603e17114839706b912cdf7ae05a95d9",
+      "../src/services/excel.service.ts": {
+        "version": "1a92b94e8d667f6074d4fa8095e4ff555b5b11991f48a87ad387b353bee3cc22",
+        "signature": "042bdd9f21f0b5e5838b2fe89e846e2e2550436ad9bf1e8e51d5d13d58f1dd45",
+        "affectsGlobalScope": false
+      },
+      "../src/rest/users/users.controller.ts": {
+        "version": "b9c253846d0b86cfa8e0bb573dc778f60593d1394882bcc17934daeebce8ceeb",
+        "signature": "404aa88042ffb4e9d5d9d5307b3088c39611598c8c27018f352f32e32daccbed",
         "affectsGlobalScope": false
       },
       "../src/rest/users/users.module.ts": {
-        "version": "2916063f1d7c353d45f85b9e7865441eafb38da4d4e60f9a7171f70c3decfb20",
+        "version": "b2f1d65c1d2339cef2a16752a9d28b2e2deb0b639cb539d2f9405fc6859ed75d",
         "signature": "12dec6c99bd8d11167fa91a31e737abbbf8c9cc789c151a25a9a1d13f328175c",
         "affectsGlobalScope": false
       },
@@ -6960,6 +6965,15 @@
       "../node_modules/axios/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/exceljs/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
@@ -11487,24 +11501,6 @@
         "../node_modules/rxjs/index.d.ts",
         "../node_modules/rxjs/operators/index.d.ts"
       ],
-      "../src/mailer/mail.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../src/mailer/mail.service.ts"
-      ],
-      "../src/mailer/mail.service.ts": [
-        "../node_modules/@nestjs-modules/mailer/index.d.ts",
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/graceful-fs/index.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/fs.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -11616,7 +11612,8 @@
         "../src/entities/user.entity.ts",
         "../src/interceptors/qr.interceptor.ts",
         "../src/rest/auth/guards/jwt-auth.guard.ts",
-        "../src/rest/users/users.service.ts"
+        "../src/rest/users/users.service.ts",
+        "../src/services/excel.service.ts"
       ],
       "../src/rest/users/users.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11627,9 +11624,10 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../src/entities/user.entity.ts",
-        "../src/mailer/mail.module.ts",
         "../src/rest/users/users.controller.ts",
-        "../src/rest/users/users.service.ts"
+        "../src/rest/users/users.service.ts",
+        "../src/services/excel.service.ts",
+        "../src/services/mail.service.ts"
       ],
       "../src/rest/users/users.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -11643,7 +11641,27 @@
         "../src/dto/create-user.dto.ts",
         "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts",
-        "../src/mailer/mail.service.ts"
+        "../src/services/mail.service.ts"
+      ],
+      "../src/services/excel.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/exceljs/index.d.ts",
+        "../src/rest/users/users.service.ts"
+      ],
+      "../src/services/mail.service.ts": [
+        "../node_modules/@nestjs-modules/mailer/index.d.ts",
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -14536,6 +14554,15 @@
       "../node_modules/axios/index.d.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/exceljs/index.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
@@ -18984,9 +19011,6 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/rxjs/index.d.ts"
       ],
-      "../src/mailer/mail.service.ts": [
-        "../node_modules/@nestjs-modules/mailer/index.d.ts"
-      ],
       "../src/middleware/qs.middleware.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@types/express/index.d.ts"
@@ -19020,14 +19044,22 @@
         "../src/dto/create-user.dto.ts",
         "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts",
-        "../src/rest/users/users.service.ts"
+        "../src/rest/users/users.service.ts",
+        "../src/services/excel.service.ts"
       ],
       "../src/rest/users/users.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/dto/create-user.dto.ts",
         "../src/dto/edit-user.dto.ts",
         "../src/entities/user.entity.ts",
-        "../src/mailer/mail.service.ts"
+        "../src/services/mail.service.ts"
+      ],
+      "../src/services/excel.service.ts": [
+        "../node_modules/@types/express/index.d.ts",
+        "../src/rest/users/users.service.ts"
+      ],
+      "../src/services/mail.service.ts": [
+        "../node_modules/@nestjs-modules/mailer/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": []

@@ -1,5 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, Req, ParseIntPipe, UseInterceptors } from '@nestjs/common';
-import { Request } from 'express';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards, Req, Res, ParseIntPipe, UseInterceptors, Header } from '@nestjs/common';
+import { Request, Response } from 'express';
 
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CreateUserDto } from '../../dto/create-user.dto';
@@ -7,10 +7,14 @@ import { EditUserDto } from '../../dto/edit-user.dto';
 import { User } from '../../entities/user.entity';
 import { UsersService } from './users.service';
 import { QueryResultInterceptor } from '../../interceptors/qr.interceptor';
+import { ExcelService } from '../../services/excel.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private excel: ExcelService
+  ) { }
 
   @Post()
   create(@Body() userData: CreateUserDto): Promise<User> {
@@ -42,4 +46,10 @@ export class UsersController {
     return this.usersService.remove(id);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('/download/run')
+	@Header('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+	async download(@Res() res: Response): Promise<any> {
+		return await this.excel.xlsList(res);
+	}
 }

@@ -19,10 +19,12 @@ const create_user_dto_1 = require("../../dto/create-user.dto");
 const edit_user_dto_1 = require("../../dto/edit-user.dto");
 const users_service_1 = require("./users.service");
 const qr_interceptor_1 = require("../../interceptors/qr.interceptor");
+const excel_service_1 = require("../../services/excel.service");
 let UsersController = (() => {
     let UsersController = class UsersController {
-        constructor(usersService) {
+        constructor(usersService, excel) {
             this.usersService = usersService;
+            this.excel = excel;
         }
         create(userData) {
             return this.usersService.create(userData);
@@ -38,6 +40,9 @@ let UsersController = (() => {
         }
         remove(id) {
             return this.usersService.remove(id);
+        }
+        async download(res) {
+            return await this.excel.xlsList(res);
         }
     };
     __decorate([
@@ -80,9 +85,19 @@ let UsersController = (() => {
         __metadata("design:paramtypes", [Number]),
         __metadata("design:returntype", Promise)
     ], UsersController.prototype, "remove", null);
+    __decorate([
+        common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+        common_1.Get('/download/run'),
+        common_1.Header('Content-type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
+        __param(0, common_1.Res()),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", Promise)
+    ], UsersController.prototype, "download", null);
     UsersController = __decorate([
         common_1.Controller('users'),
-        __metadata("design:paramtypes", [users_service_1.UsersService])
+        __metadata("design:paramtypes", [users_service_1.UsersService,
+            excel_service_1.ExcelService])
     ], UsersController);
     return UsersController;
 })();

@@ -28,6 +28,10 @@ export class HttpHelperService {
     return this.http.put<T>(`${environment.apiUrl}/${url}/${id}`, body);
   }
 
+  download(url: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/${url}`, {responseType: 'blob'});
+  }
+
   setParams(paramsObj: Params) {
     let params = new HttpParams();
     for(let key in paramsObj) {

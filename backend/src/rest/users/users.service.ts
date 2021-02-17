@@ -1,6 +1,6 @@
 import { Injectable, InternalServerErrorException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MailService } from '../../mailer/mail.service';
+import { MailService } from '../../services/mail.service';
 import { Repository } from 'typeorm';
 
 import { CreateUserDto } from '../../dto/create-user.dto';
