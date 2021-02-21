@@ -15,9 +15,15 @@ exports.configuration = () => ({
         synchronize: true,
         entities: ['dist/**/*.entity{.ts,.js}']
     },
-    static: [{
+    static: [
+        {
             rootPath: path_1.join(__dirname, '..', '..', '..', 'static'),
-            exclude: ['/api*'],
-        }]
+            exclude: ['/api*', '/uploads*'],
+        },
+        {
+            rootPath: path_1.join(__dirname, '..', '..', '..', 'uploads'),
+            serveRoot: '/uploads'
+        }
+    ]
 });
 //# sourceMappingURL=configuration.js.map

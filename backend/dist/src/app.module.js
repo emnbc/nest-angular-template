@@ -13,6 +13,7 @@ const config_1 = require("@nestjs/config");
 const serve_static_1 = require("@nestjs/serve-static");
 const auth_module_1 = require("./rest/auth/auth.module");
 const users_module_1 = require("./rest/users/users.module");
+const profile_module_1 = require("./rest/profile/profile.module");
 const app_controller_1 = require("./app.controller");
 const configuration_1 = require("./config/configuration");
 const db_config_1 = require("./config/db.config");
@@ -36,7 +37,8 @@ let AppModule = (() => {
                 serve_static_1.ServeStaticModule.forRootAsync({ imports: [config_1.ConfigModule], useClass: static_config_1.StaticConfig }),
                 typeorm_1.TypeOrmModule.forRootAsync({ imports: [config_1.ConfigModule], useClass: db_config_1.DatabaseConfig }),
                 auth_module_1.AuthModule,
-                users_module_1.UsersModule
+                users_module_1.UsersModule,
+                profile_module_1.ProfileModule
             ],
             controllers: [app_controller_1.AppController]
         })

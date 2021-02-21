@@ -59,6 +59,12 @@ export class AuthService {
     }
   }
 
+  refreshUser() {
+    this.http.find<User>('auth/me').subscribe(user => {
+      this.user.next(user.body);
+    });
+  }
+
   logOut(): void {
     this.token = null;
     localStorage.removeItem('token');

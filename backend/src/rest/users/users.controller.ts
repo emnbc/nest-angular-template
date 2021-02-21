@@ -13,7 +13,7 @@ import { ExcelService } from '../../services/excel.service';
 export class UsersController {
   constructor(
     private readonly usersService: UsersService,
-    private excel: ExcelService
+    private readonly excel: ExcelService
   ) { }
 
   @Post()

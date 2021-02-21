@@ -50,6 +50,10 @@ let User = (() => {
         __metadata("design:type", String)
     ], User.prototype, "birthDate", void 0);
     __decorate([
+        typeorm_1.Column({ nullable: true }),
+        __metadata("design:type", String)
+    ], User.prototype, "avatar", void 0);
+    __decorate([
         typeorm_1.Column({ default: true }),
         __metadata("design:type", Boolean)
     ], User.prototype, "isActive", void 0);

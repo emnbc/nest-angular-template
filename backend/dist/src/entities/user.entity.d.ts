@@ -6,6 +6,7 @@ export declare class User {
     email: string;
     password: string;
     birthDate: string;
+    avatar: string;
     isActive: boolean;
     hashPassword(): Promise<void>;
     comparePassword(attempt: string): Promise<boolean>;

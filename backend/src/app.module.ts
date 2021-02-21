@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 
 import { AuthModule } from './rest/auth/auth.module';
 import { UsersModule } from './rest/users/users.module';
+import { ProfileModule } from './rest/profile/profile.module';
 import { AppController } from './app.controller';
 import { configuration } from './config/configuration';
 import { DatabaseConfig } from './config/db.config';
@@ -21,7 +22,8 @@ import { MailerModule } from '@nestjs-modules/mailer';
     ServeStaticModule.forRootAsync({ imports: [ConfigModule], useClass: StaticConfig }),
     TypeOrmModule.forRootAsync({ imports: [ConfigModule], useClass: DatabaseConfig }),
     AuthModule,
-    UsersModule
+    UsersModule,
+    ProfileModule
   ],
   controllers: [AppController]
 })

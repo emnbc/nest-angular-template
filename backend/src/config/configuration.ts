@@ -13,8 +13,14 @@ export const configuration = () => ({
         synchronize: true,
         entities: ['dist/**/*.entity{.ts,.js}']
     },
-    static: [{
-        rootPath: join(__dirname, '..', '..', '..', 'static'),
-        exclude: ['/api*'],
-    }]
+    static: [
+        {
+            rootPath: join(__dirname, '..', '..', '..', 'static'),
+            exclude: ['/api*', '/uploads*'],
+        },
+        {
+            rootPath: join(__dirname, '..', '..', '..', 'uploads'),
+            serveRoot: '/uploads'
+        }
+    ]
   });

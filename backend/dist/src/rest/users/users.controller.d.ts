@@ -6,7 +6,7 @@ import { UsersService } from './users.service';
 import { ExcelService } from '../../services/excel.service';
 export declare class UsersController {
     private readonly usersService;
-    private excel;
+    private readonly excel;
     constructor(usersService: UsersService, excel: ExcelService);
     create(userData: CreateUserDto): Promise<User>;
     update(id: number, userData: EditUserDto): Promise<any>;

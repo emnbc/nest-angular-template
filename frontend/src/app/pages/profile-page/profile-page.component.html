@@ -2,33 +2,48 @@
     <div class="profile-page">
         <h2>Profile</h2>
 
-        <mat-divider class="profile-page__divider"></mat-divider>
+        <div class="profile-page__flexible" [class.mobile]="mobile">
+            <div class="profile-page__flexible__avatar">
 
-        <div class="profile-page__row">
-            <div class="profile-page__name">First Name</div>
-            <div class="profile-page__value">{{user?.firstName}}</div>
-        </div>
-        <div class="profile-page__row">
-            <div class="profile-page__name">Last Name</div>
-            <div class="profile-page__value">{{user?.lastName}}</div>
-        </div>
-        <div class="profile-page__row">
-            <div class="profile-page__name">Birth Date</div>
-            <div class="profile-page__value">{{user?.birthDate | date: 'mediumDate'}}</div>
-        </div>
+                <div class="profile-page__flexible__avatar_img" [style.background-image]="'url(uploads/' + user.avatar + ')'"></div>
+                
+                <div class="profile-page__flexible__avatar_button">
+                    <button mat-raised-button (click)="fileInput.click()">Upload Image</button>
+                    <input #fileInput hidden type="file" (change)="uploadFile($event.target.files)" name="file" accept="image/png,image/jpeg">
+                </div>
 
-        <mat-divider class="profile-page__divider"></mat-divider>
+            </div>
+            <div class="profile-page__flexible__info">
+                <h3>Information</h3>
+                <mat-divider class="profile-page__divider"></mat-divider>
 
-        <div class="profile-page__row">
-            <div class="profile-page__name">Username</div>
-            <div class="profile-page__value">{{user?.username}}</div>
+                <div class="profile-page__row">
+                    <div class="profile-page__name">First Name</div>
+                    <div class="profile-page__value">{{user?.firstName}}</div>
+                </div>
+                <div class="profile-page__row">
+                    <div class="profile-page__name">Last Name</div>
+                    <div class="profile-page__value">{{user?.lastName}}</div>
+                </div>
+                <div class="profile-page__row">
+                    <div class="profile-page__name">Birth Date</div>
+                    <div class="profile-page__value">{{user?.birthDate | date: 'mediumDate'}}</div>
+                </div>
+        
+                <mat-divider class="profile-page__divider"></mat-divider>
+        
+                <div class="profile-page__row">
+                    <div class="profile-page__name">Username</div>
+                    <div class="profile-page__value">{{user?.username}}</div>
+                </div>
+                <div class="profile-page__row">
+                    <div class="profile-page__name">Email</div>
+                    <div class="profile-page__value">{{user?.email}}</div>
+                </div>
+        
+                <mat-divider class="profile-page__divider"></mat-divider>
+            </div>
         </div>
-        <div class="profile-page__row">
-            <div class="profile-page__name">Email</div>
-            <div class="profile-page__value">{{user?.email}}</div>
-        </div>
-
-        <mat-divider class="profile-page__divider"></mat-divider>
 
         <p>
             <a class="brand-link" routerLink="/home">Go To Home</a>

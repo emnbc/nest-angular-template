@@ -4,5 +4,11 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
+  },
+  "/uploads": {
+    "target": "http://localhost:3031",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }

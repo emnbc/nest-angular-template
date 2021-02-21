@@ -11,8 +11,13 @@ export declare const configuration: () => {
         synchronize: boolean;
         entities: string[];
     };
-    static: {
+    static: ({
         rootPath: string;
         exclude: string[];
-    }[];
+        serveRoot?: undefined;
+    } | {
+        rootPath: string;
+        serveRoot: string;
+        exclude?: undefined;
+    })[];
 };

@@ -32,6 +32,10 @@ export class HttpHelperService {
     return this.http.get(`${environment.apiUrl}/${url}`, {responseType: 'blob'});
   }
 
+  upload(url: string, formData: FormData): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/${url}`, formData);
+  }
+
   setParams(paramsObj: Params) {
     let params = new HttpParams();
     for(let key in paramsObj) {

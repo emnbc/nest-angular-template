@@ -10,7 +10,8 @@ export class User extends BaseModel {
         'lastName',
         'email',
         'birthDate',
-        'registerDate'
+        'registerDate',
+        'avatar'
     ];
 
     id: string;
@@ -21,6 +22,7 @@ export class User extends BaseModel {
     email: string;
     birthDate: string;
     registerDate: string;
+    avatar: string;
 
     constructor(obj?: any) {
         super();
