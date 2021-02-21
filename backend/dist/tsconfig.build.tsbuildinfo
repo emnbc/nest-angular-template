@@ -1432,7 +1432,7 @@
         "affectsGlobalScope": false
       },
       "../migrations/1613716762359-user_avatar.ts": {
-        "version": "4a393905c22247be4e0c9283b3017ae4e6afb6a02f11cb9617342dcdc3b037b8",
+        "version": "21016a908c5c6e23c4746bad60d55342888d76910e63d7f80a86876fa9e655d9",
         "signature": "2962def6e9fa129964d83c59e4e75952daeee724ff87c642e7b6ced996f33021",
         "affectsGlobalScope": false
       },
@@ -3842,7 +3842,7 @@
         "affectsGlobalScope": true
       },
       "../src/rest/profile/profile.service.ts": {
-        "version": "eb873e1a4f8afbe8bda47a29245b220307f16e5d20f29d9cc3560ea2b409aedd",
+        "version": "c2b1842b5d52eba4e85f43de90f451a1b3db7b534ad9128ed7561c7d08c891e7",
         "signature": "0c868b37641c914be8cefd710469fca42d143e47aaf741739b16aac9369404d2",
         "affectsGlobalScope": false
       },
