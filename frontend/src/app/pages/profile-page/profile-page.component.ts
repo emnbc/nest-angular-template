@@ -15,6 +15,8 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   user: User;
   width: number;
+  error: string = null;
+
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   @ViewChild('fileInput') fileInput: ElementRef<HTMLInputElement>;
 
@@ -35,8 +37,15 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
 
   uploadFile(files: File[]) {
 
+    this.error = null;
+
     const formData: FormData = new FormData();
     formData.append('file', files[0], files[0].name);
+
+    if (files[0].size > 1048576) {
+      this.error = 'Max file size 1 MB';
+      return;
+    }
 
     this.http.upload('profile/upload', formData).subscribe(() => {
       this.auth.refreshUser();
