@@ -5,7 +5,8 @@
         <div class="profile-page__flexible" [class.mobile]="mobile">
             <div class="profile-page__flexible__avatar">
 
-                <div class="profile-page__flexible__avatar_img" [style.background-image]="'url(uploads/' + user.avatar + ')'"></div>
+                <div    class="profile-page__flexible__avatar_img"
+                        [style.background-image]="user.avatar ? 'url(uploads/' + user.avatar + ')' : 'url(assets/img/no-avatar.png)'"></div>
                 
                 <div class="profile-page__flexible__avatar_button">
                     <div><mat-error *ngIf="error">{{error}}</mat-error></div>

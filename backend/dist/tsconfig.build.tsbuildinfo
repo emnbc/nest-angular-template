@@ -3842,7 +3842,7 @@
         "affectsGlobalScope": true
       },
       "../src/rest/profile/profile.service.ts": {
-        "version": "c2b1842b5d52eba4e85f43de90f451a1b3db7b534ad9128ed7561c7d08c891e7",
+        "version": "435b356fe1194c1f8f9e49435469152dc3a9a1b4178921a12e4197d70d17115c",
         "signature": "0c868b37641c914be8cefd710469fca42d143e47aaf741739b16aac9369404d2",
         "affectsGlobalScope": false
       },

@@ -16,7 +16,10 @@ exports.ProfileService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const util_1 = require("util");
+const fs_1 = require("fs");
 const user_entity_1 = require("../../entities/user.entity");
+const unlinkPromise = util_1.promisify(fs_1.unlink);
 let ProfileService = (() => {
     let ProfileService = class ProfileService {
         constructor(usersRepository) {
@@ -26,11 +29,20 @@ let ProfileService = (() => {
             if (id === 1) {
                 throw new common_1.InternalServerErrorException();
             }
+            const { avatar } = await this.usersRepository.findOne(id);
             try {
                 await this.usersRepository.update(id, { avatar: imgName });
             }
             catch (err) {
                 throw new common_1.InternalServerErrorException(err);
+            }
+            if (avatar) {
+                try {
+                    await unlinkPromise('./uploads/' + avatar);
+                }
+                catch (err) {
+                    throw new common_1.InternalServerErrorException(err);
+                }
             }
         }
     };
