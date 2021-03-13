@@ -51,7 +51,7 @@ export class UserRegistrationComponent implements OnInit {
   ngOnInit() {
     this.submit.subscribe(() => this.isEdit ? this.submitUpdate() : this.submitRegister());
     if (this.user) {
-      const {id, registerDate, ...other} = this.user;
+      const {id, registerDate, avatar, ...other} = this.user;
       this.userFormGroup.setValue(other);
       this.userFormGroup.removeControl('password'); // TO DO
       this.userFormGroup.setControl('username', new FormControl({value: this.user.username, disabled: true}));
